@@ -1,0 +1,331 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Emisión de Recibo de cuota de alquiler</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!-- BEGIN Record recibo -->
+<form id="recibo" name="{HTMLFormName}" action="recibo.php" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Ingrese número de recibo</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="5">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th></th>
+ 
+            <td colspan="4"><input id="recibocuotas" type="hidden" value="{cuotas}" name="{cuotas_Name}"><input id="reciboidalquiler" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td>&nbsp;Señor(es):</td> 
+            <td colspan="3">&nbsp;{nombre}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td>&nbsp;Domicilio</td> 
+            <td colspan="3">&nbsp;{domicilio}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td>&nbsp;Localidad</td> 
+            <td>&nbsp;{localidad}</td> 
+            <td>&nbsp;CUIT/CUIL</td> 
+            <td>&nbsp;{cuit}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;Cobranzas por terceros nro: <input id="recibonrorec" value="{nrorec}" name="{nrorec_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;Por cuenta y orden de:</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;{propietario}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;Por el alquiler de la propiedad ubicada en:</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;{domicilio_propiedad}&nbsp;{localidad_propiedad}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;Período: {periodo}</td> 
+            <td>&nbsp;Vencimiento del contrato: {fvto}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;Alquiler: {importe_cuota}&nbsp;&nbsp; o&nbsp;&nbsp; Acuerdo: <input id="reciboacuerdo" value="{acuerdo}" name="{acuerdo_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;Ingrese otros cargos si corresponde</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;Importe</td> 
+            <td>&nbsp;Detalle</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros1" value="{otros1}" name="{otros1_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle1" style="WIDTH: 336px; HEIGHT: 22px" maxlength="40" size="40" value="{detalle1}" name="{detalle1_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros2" value="{otros2}" name="{otros2_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle2" style="WIDTH: 335px; HEIGHT: 22px" maxlength="40" size="40" value="{detalle2}" name="{detalle2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros3" value="{otros3}" name="{otros3_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle3" style="WIDTH: 333px; HEIGHT: 22px" maxlength="40" size="50" value="{detalle3}" name="{detalle3_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros4" value="{otros4}" name="{otros4_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle4" style="WIDTH: 332px; HEIGHT: 22px" size="45" value="{detalle4}" name="{detalle4_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros5" value="{otros5}" name="{otros5_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle5" style="WIDTH: 333px; HEIGHT: 22px" size="45" value="{detalle5}" name="{detalle5_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros6" value="{otros6}" name="{otros6_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle6" style="WIDTH: 333px; HEIGHT: 22px" size="45" value="{detalle6}" name="{detalle6_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros7" value="{otros7}" name="{otros7_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle7" style="WIDTH: 332px; HEIGHT: 22px" size="45" value="{detalle7}" name="{detalle7_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros8" value="{otros8}" name="{otros8_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle8" style="WIDTH: 331px; HEIGHT: 22px" size="45" value="{detalle8}" name="{detalle8_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros9" value="{otros9}" name="{otros9_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle9" style="WIDTH: 332px; HEIGHT: 22px" size="45" value="{detalle9}" name="{detalle9_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3">&nbsp;<input id="recibootros10" value="{otros10}" name="{otros10_Name}"></td> 
+            <td>&nbsp;<input id="recibodetalle10" style="WIDTH: 331px; HEIGHT: 22px" size="45" value="{detalle10}" name="{detalle10_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;El locatario entregó los siguientes comprobantes:</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos1" name="{idimpuestos1_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos1_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos1" maxlength="10" value="{impuestos1}" name="{impuestos1_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos2" name="{idimpuestos2_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos2_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos2" maxlength="10" value="{impuestos2}" name="{impuestos2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos3" name="{idimpuestos3_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos3_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos3" maxlength="10" value="{impuestos3}" name="{impuestos3_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos4" name="{idimpuestos4_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos4_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos4" maxlength="10" value="{impuestos4}" name="{impuestos4_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos5" name="{idimpuestos5_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos5_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos5" maxlength="10" value="{impuestos5}" name="{impuestos5_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos6" name="{idimpuestos6_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos6_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos6" maxlength="10" value="{impuestos6}" name="{impuestos6_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos7" name="{idimpuestos7_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos7_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos7" maxlength="10" value="{impuestos7}" name="{impuestos7_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos8" name="{idimpuestos8_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos8_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos8" maxlength="10" value="{impuestos8}" name="{impuestos8_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos9" name="{idimpuestos9_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos9_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos9" maxlength="10" value="{impuestos9}" name="{impuestos9_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">
+              <select id="reciboidimpuestos10" name="{idimpuestos10_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idimpuestos10_Options}
+              </select>
+ &nbsp;<input id="reciboimpuestos10" maxlength="10" value="{impuestos10}" name="{impuestos10_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;Observaciones</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="4">&nbsp;<input id="reciboobservaciones" style="WIDTH: 423px; HEIGHT: 22px" maxlength="60" size="60" value="{observaciones}" name="{observaciones_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="5">
+              <p>
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="reciboButton_Insert" onclick="return confirm('Confirma la impresión del recibo?')" type="submit" value="Imprimir recibo" name="{Button_Name}"><!-- END Button Button_Insert --></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record recibo --><a href="{Link1_Src}" id="Link1" onclick="window.close();">Cerrar ventana</a> 
+</body>
+</html>

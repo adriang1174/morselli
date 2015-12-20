@@ -1,0 +1,177 @@
+<html>
+<head>
+<meta name="GENERATOR" content="CodeCharge Studio 3.2.0.2">
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Alquileres</title>
+<link rel="stylesheet" type="text/css" href="../Styles/SandBeach/Style.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-99F07CBB
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    if (functionExists("Footer_bind_events")) Footer_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{Header}
+<!-- BEGIN Record alquileresSearch -->
+<form method="post" action="{Action}" name="{HTMLFormName}">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="0" border="0" class="Header">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+            <th>Alquileres Buscar</th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Palabra clave</th>
+ 
+            <td><input type="text" name="{s_keyword_Name}" value="{s_keyword}" maxlength="20" size="20" id="alquileresSearchs_keyword"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="right">
+              <!-- BEGIN Button Button_DoSearch --><input name="{Button_Name}" type="submit" value="Buscar" class="Button" id="alquileresSearchButton_DoSearch"><!-- END Button Button_DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record alquileresSearch --><br>
+<!-- BEGIN Grid alquileres -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table cellspacing="0" cellpadding="0" border="0" class="Header">
+        <tr>
+          <td class="HeaderLeft"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+          <th>Alquileres Lista de</th>
+ 
+          <td class="HeaderRight"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_idalquiler --><a href="{Sort_URL}" id="alquileresSorter_idalquiler">Idalquiler</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_idalquiler --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_direccion --><a href="{Sort_URL}" id="alquileresSorter_direccion">Direccion</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_direccion --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_descripcion --><a href="{Sort_URL}" id="alquileresSorter_descripcion">Descripcion</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_descripcion --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_fechainicio --><a href="{Sort_URL}" id="alquileresSorter_fechainicio">Fechainicio</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_fechainicio --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_fechafin --><a href="{Sort_URL}" id="alquileresSorter_fechafin">Fechafin</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_fechafin --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_ano1 --><a href="{Sort_URL}" id="alquileresSorter_ano1">Ano1</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_ano1 --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_ano2 --><a href="{Sort_URL}" id="alquileresSorter_ano2">Ano2</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_ano2 --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_ano3 --><a href="{Sort_URL}" id="alquileresSorter_ano3">Ano3</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_ano3 --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_porcentajehonorarios --><a href="{Sort_URL}" id="alquileresSorter_porcentajehonorarios">Porcentajehonorarios</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_porcentajehonorarios --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_vto --><a href="{Sort_URL}" id="alquileresSorter_vto">Vto</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_vto --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_acuerdo --><a href="{Sort_URL}" id="alquileresSorter_acuerdo">Acuerdo</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/SandBeach/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/SandBeach/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_acuerdo --></th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="text-align:right;"><a href="{idalquiler_Src}" id="alquileresidalquiler_{alquileres:rowNumber}">{idalquiler}</a>&nbsp;</td> 
+          <td>{direccion}&nbsp;</td> 
+          <td>{descripcion}&nbsp;</td> 
+          <td>{fechainicio}&nbsp;</td> 
+          <td>{fechafin}&nbsp;</td> 
+          <td>{ano1}&nbsp;</td> 
+          <td>{ano2}&nbsp;</td> 
+          <td>{ano3}&nbsp;</td> 
+          <td>{porcentajehonorarios}&nbsp;</td> 
+          <td>{vto}&nbsp;</td> 
+          <td>{acuerdo}&nbsp;</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="11">No hay registros</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="11"><a href="{alquileres_Insert_Src}" id="alquileresalquileres_Insert">Agregar Nuevo</a>&nbsp; 
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a> <!-- END First_On -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a> <!-- END Prev_On -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a> <!-- END Next_On -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a> <!-- END Last_On --><!-- END Navigator Navigator --></td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid alquileres --><br>
+{Footer}
+</body>
+</html>

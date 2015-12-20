@@ -1,0 +1,167 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>rvencalq</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<p>&nbsp; 
+<!-- BEGIN Report Report1 -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Consulta de vencimientos de alquiler por fecha&nbsp;</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr class="Caption">
+          <th>Inquilino &nbsp;</th>
+ 
+          <th>Contrato &nbsp;</th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_idcuota --><a href="{Sort_URL}">Idcuota</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_idcuota -->&nbsp;</th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_ano --><a href="{Sort_URL}">Ano</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_ano -->&nbsp;</th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_mes --><a href="{Sort_URL}">Mes</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_mes -->&nbsp;</th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_importe --><a href="{Sort_URL}">Importe</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_importe -->&nbsp;</th>
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer -->
+        <tr class="Footer">
+          <td colspan="6">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator --></td>
+        </tr>
+ <!-- END Section Page_Footer -->
+        <!-- BEGIN Section inquilino_Header -->
+        <tr class="GroupCaption">
+          <th>{inquilino} </th>
+ 
+          <th>&nbsp; </th>
+ 
+          <th>&nbsp; </th>
+ 
+          <th>&nbsp; </th>
+ 
+          <th>&nbsp; </th>
+ 
+          <th>&nbsp; </th>
+        </tr>
+ <!-- END Section inquilino_Header -->
+        <!-- BEGIN Section contrato_Header -->
+        <tr class="GroupCaption">
+          <th style="TEXT-ALIGN: right">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right">{contrato} </th>
+ 
+          <th style="TEXT-ALIGN: right">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right">&nbsp; </th>
+        </tr>
+ <!-- END Section contrato_Header -->
+        <!-- BEGIN Section Detail -->
+        <tr class="Row">
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">{idcuota} </td> 
+          <td style="TEXT-ALIGN: right">{ano} </td> 
+          <td style="TEXT-ALIGN: right">{mes} </td> 
+          <td style="TEXT-ALIGN: right">{simbolo} {importe} </td>
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section contrato_Footer -->
+        <tr class="SubTotal">
+          <td>Sub Total &nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{Sum_importe1} </td>
+        </tr>
+ <!-- END Section contrato_Footer -->
+        <!-- BEGIN Section inquilino_Footer -->
+        <tr class="SubTotal">
+          <td>Sub Total &nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{Sum_importe} </td>
+        </tr>
+ <!-- END Section inquilino_Footer -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="6">No hay registros</td>
+        </tr>
+ <!-- END Panel NoRecords -->
+        <tr class="Total">
+          <td valign="baseline">Grand Total </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{TotalSum_importe} </td>
+        </tr>
+ <!-- END Section Report_Footer -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Report Report1 --><br>
+</p>
+</body>
+</html>

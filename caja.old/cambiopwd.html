@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>cambiopwd</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-D6FCA016
+function bind_events() {
+    if (functionExists("Headercaja_bind_events")) Headercaja_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Headercaja}</p>
+<!-- BEGIN Record pwdcaja -->
+<form id="pwdcaja" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Cambio de contraseña de Caja</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Contraseña actual </th>
+ 
+            <td><input id="pwdcajaoldpassword" type="password" value="{oldpassword}" name="{oldpassword_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Contraseña nueva </th>
+ 
+            <td><input id="pwdcajanewpassword" type="password" value="{newpassword}" name="{newpassword_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th></th>
+ 
+            <td><input id="pwdcajapassword" type="hidden" value="{password}" name="{password_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Update --><input class="Button" id="pwdcajaButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record pwdcaja --><br>
+</body>
+</html>

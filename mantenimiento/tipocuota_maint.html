@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Tipocuota</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//tipocuotaButton_Delete_OnClick @5-2B0FCA78
+function tipocuotaButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End tipocuotaButton_Delete_OnClick
+
+//bind_events @1-15E2B5BE
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("tipocuotaButton_Delete", "click", tipocuotaButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Record tipocuota -->
+<form id="tipocuota" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Agregar/Editar Tipo de cuota </th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Código</th>
+ 
+            <td><input id="tipocuotaidtipocuota" maxlength="10" size="10" value="{idtipocuota}" name="{idtipocuota_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Descripción</th>
+ 
+            <td><input id="tipocuotadescripcion" maxlength="20" value="{descripcion}" name="{descripcion_Name}" size="20"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Tipo movimiento liq</th>
+ 
+            <td>
+              <input type="text" name="{tipomovimientoliq_Name}" value="{tipomovimientoliq}" maxlength="2" size="2" id="tipocuotatipomovimientoliq">
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>
+            <p>Tipo&nbsp;movimiento pago</p>
+ </th>
+ 
+            <td>
+              <input type="text" name="{tipomovimientopag_Name}" value="{tipomovimientopag}" maxlength="2" size="2" id="tipocuotatipomovimientopag">
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Porcentaje</th>
+ 
+            <td><input id="tipocuotaporcentaje" maxlength="12" size="12" value="{porcentaje}" name="{porcentaje_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="tipocuotaButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="tipocuotaButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="tipocuotaButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record tipocuota --><br>
+</body>
+</html>

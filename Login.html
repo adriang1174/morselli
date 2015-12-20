@@ -1,0 +1,67 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Login</title>
+<meta content="CodeCharge Studio 3.2.0.2" name="GENERATOR">
+<link href="Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>&nbsp;</p>
+<p align="center"><img id="Image1" alt="" src="Styles/logo.bmp" name="Image1"></p>
+<div align="center">
+  <!-- BEGIN Record Login -->
+  <div align="left">
+    <form name="{HTMLFormName}" action="{Action}" method="post">
+      <table cellspacing="0" cellpadding="0" align="center" border="0">
+        <tr>
+          <td valign="top">
+            <table class="Header" cellspacing="0" cellpadding="0" border="0">
+              <tr>
+                <td class="HeaderLeft"><img src="Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+                <th>Login</th>
+ 
+                <td class="HeaderRight"><img src="Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+              </tr>
+ 
+            </table>
+ 
+            <table class="Record" cellspacing="0" cellpadding="0">
+              <!-- BEGIN Error -->
+              <tr class="Error">
+                <td colspan="2">{Error}</td> 
+              </tr>
+ <!-- END Error -->
+              <tr class="Controls">
+                <th>Login</th>
+ 
+                <td><input id="Loginlogin" maxlength="100" value="{login}" name="{login_Name}" size="20"></td> 
+              </tr>
+ 
+              <tr class="Controls">
+                <th>Password</th>
+ 
+                <td><input id="Loginpassword" type="password" maxlength="100" value="{password}" name="{password_Name}" size="20"></td> 
+              </tr>
+ 
+              <tr class="Bottom">
+                <td align="right" colspan="2">
+                  <!-- BEGIN Button Button_DoLogin --><input class="Button" id="LoginButton_DoLogin" type="submit" value="Login" name="{Button_Name}"><!-- END Button Button_DoLogin --></td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ 
+    </form>
+ 
+  </div>
+ 
+  <div align="left">
+  </div>
+ <!-- END Record Login -->
+</div>
+{Footer} 
+</body>
+</html>

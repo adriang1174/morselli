@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta name="GENERATOR" content="CodeCharge Studio 3.2.0.2">
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Propiedadesseguros</title>
+<link rel="stylesheet" type="text/css" href="../Styles/SandBeach/Style.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//propiedadessegurosButton_Delete_OnClick @5-6023E7D0
+function propiedadessegurosButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End propiedadessegurosButton_Delete_OnClick
+
+//bind_events @1-B4BA53D4
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    if (functionExists("Footer_bind_events")) Footer_bind_events();
+    addEventHandler("propiedadessegurosButton_Delete", "click", propiedadessegurosButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{Header}
+<!-- BEGIN Record propiedadesseguros -->
+<form method="post" action="{Action}" name="{HTMLFormName}">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="0" border="0" class="Header">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+            <th>Agregar/Editar Propiedadesseguros </th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Idpropiedad</th>
+ 
+            <td>
+              <select name="{idpropiedad_Name}" id="propiedadessegurosidpropiedad">
+                <option value="">Seleccionar Valor</option>
+ {idpropiedad_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="right">
+              <!-- BEGIN Button Button_Insert --><input name="{Button_Name}" type="submit" value="Agregar" class="Button" id="propiedadessegurosButton_Insert"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input name="{Button_Name}" type="submit" value="Enviar" class="Button" id="propiedadessegurosButton_Update"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input name="{Button_Name}" type="submit" value="Borrar" class="Button" id="propiedadessegurosButton_Delete"><!-- END Button Button_Delete --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record propiedadesseguros --><br>
+{Footer}
+</body>
+</html>

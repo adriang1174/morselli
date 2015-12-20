@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>liquida_cuotas</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!-- BEGIN Record liquida -->
+<form id="liquida" name="{HTMLFormName}" action="liquida.php" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Ingrese número de liquidación</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th></th>
+ 
+            <td><input id="liquidanroliq" value="{nroliq}" name="{nroliq_Name}"><input type="hidden" name="{liquida_Name}" value="{liquida}" id="liquidaliquida"><input id="liquidaficha" type="hidden" value="{ficha}" name="{ficha_Name}"><input id="liquidaidalquiler" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="liquidaButton_Insert" type="submit" value="liquidar" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record liquida -->
+</body>
+</html>

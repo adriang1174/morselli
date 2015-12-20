@@ -1,0 +1,83 @@
+<html>
+<head>
+<meta content="text/html; charset=windows-1252" http-equiv="content-type">
+<title>Impuestos</title>
+<meta name="GENERATOR" content="CodeCharge Studio 3.2.0.2">
+<link rel="stylesheet" type="text/css" href="../Styles/SandBeach/Style.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//impuestosButton_Delete_OnClick @5-7CCFD12C
+function impuestosButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End impuestosButton_Delete_OnClick
+
+//bind_events @1-23BB4AF0
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    if (functionExists("Footer_bind_events")) Footer_bind_events();
+    addEventHandler("impuestosButton_Delete", "click", impuestosButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{Header} 
+<!-- BEGIN Record impuestos -->
+<form method="post" name="{HTMLFormName}" action="{Action}">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td> 
+            <th>Agregar/Editar Impuestos </th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Nombre impuesto</th>
+ 
+            <td><input id="impuestosnombreimpuesto" value="{nombreimpuesto}" maxlength="20" name="{nombreimpuesto_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Meses vencimiento</th>
+ 
+            <td><input id="impuestosmesesvencimiento" value="{mesesvencimiento}" maxlength="20" name="{mesesvencimiento_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="right">
+              <!-- BEGIN Button Button_Insert --><input id="impuestosButton_Insert" class="Button" value="Agregar" type="submit" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input id="impuestosButton_Update" class="Button" value="Enviar" type="submit" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input id="impuestosButton_Delete" class="Button" value="Borrar" type="submit" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record impuestos --><br>
+{Footer} 
+</body>
+</html>

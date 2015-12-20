@@ -1,0 +1,320 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Salida de caja</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-D5407DC8
+
+var movimientoscaja_DatePicker_fecha = new Object(); 
+movimientoscaja_DatePicker_fecha.format           = "dd/mm/yyyy HH:nn:ss";
+movimientoscaja_DatePicker_fecha.style            = "Styles/SandBeach/Style.css";
+movimientoscaja_DatePicker_fecha.relativePathPart = "../";
+movimientoscaja_DatePicker_fecha.themeVersion = "3.0";
+
+var buscafecha_DatePicker_s_fecha = new Object(); 
+buscafecha_DatePicker_s_fecha.format           = "ShortDate";
+buscafecha_DatePicker_s_fecha.style            = "Styles/SandBeach/Style.css";
+buscafecha_DatePicker_s_fecha.relativePathPart = "../";
+buscafecha_DatePicker_s_fecha.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//movimientoscajaButton_Delete_OnClick @6-40E545A3
+function movimientoscajaButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End movimientoscajaButton_Delete_OnClick
+
+//bind_events @1-4BB12433
+function bind_events() {
+    if (functionExists("Headercaja_bind_events")) Headercaja_bind_events();
+    addEventHandler("movimientoscajaButton_Delete", "click", movimientoscajaButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>
+<!-- BEGIN Grid nupcias -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>{res:CCS_GridFormPrefix} {res:nupcias} {res:CCS_GridFormSuffix} </th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_idnupcias --><a href="{Sort_URL}" id="nupciasSorter_idnupcias">{res:idnupcias}</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_idnupcias --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_desnupcias --><a href="{Sort_URL}" id="nupciasSorter_desnupcias">{res:desnupcias}</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_desnupcias --></th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td><a href="{idnupcias_Src}" id="nupciasidnupcias_{nupcias:rowNumber}">{idnupcias}</a>&nbsp;</td> 
+          <td>{desnupcias}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="2">{res:CCS_NoRecords}</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="2"><a href="{nupcias_Insert_Src}" id="nupciasnupcias_Insert">{res:CCS_InsertLink}</a>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid nupcias --><br>
+<!-- BEGIN Record nupcias1 -->
+<form id="nupcias1" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>{res:CCS_RecordFormPrefix} {res:nupcias} {res:CCS_RecordFormSuffix}</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>{res:idnupcias}</th>
+ 
+            <td><input id="nupcias1idnupcias" maxlength="20" value="{idnupcias}" name="{idnupcias_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>{res:desnupcias}</th>
+ 
+            <td><input id="nupcias1desnupcias" maxlength="50" size="50" value="{desnupcias}" name="{desnupcias_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="nupcias1Button_Insert" type="submit" value="{res:CCS_Insert}" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="nupcias1Button_Update" type="submit" value="{res:CCS_Update}" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="nupcias1Button_Delete" type="submit" value="{res:CCS_Delete}" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record nupcias1 --><br>
+{Headercaja}</p>
+<p>
+<!-- BEGIN Record buscafecha -->
+<form id="buscafecha" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Ingrese fecha</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td><input id="buscafechafecha" maxlength="100" size="10" value="{fecha}" name="{fecha_Name}">
+              <!-- BEGIN DatePicker DatePicker_s_fecha --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="buscafechaDatePicker_s_fecha"><img id="buscafechaDatePicker_s_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_s_fecha --></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="buscafechaButton_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record buscafecha --></p>
+<p>
+<!-- BEGIN Record movimientoscaja -->
+<form id="movimientoscaja" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Salida de&nbsp;caja&nbsp;</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha y Hora</th>
+ 
+            <td colspan="3"><input id="movimientoscajafecha" maxlength="100" value="{fecha}" name="{fecha_Name}">
+              <!-- BEGIN DatePicker DatePicker_fecha --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="movimientoscajaDatePicker_fecha"><img id="movimientoscajaDatePicker_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fecha --></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Moneda</th>
+ 
+            <td colspan="3">
+              <select id="movimientoscajaidmoneda" name="{idmoneda_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idmoneda_Options}
+              </select>
+ <input id="movimientoscajatipomovimiento" type="hidden" value="{tipomovimiento}" name="{tipomovimiento_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Código de gasto</th>
+ 
+            <td colspan="3">
+              <select id="movimientoscajaidcodgasto" name="{idcodgasto_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idcodgasto_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Número comprobante</th>
+ 
+            <td colspan="3"><input id="movimientoscajanumero" maxlength="20" value="{numero}" name="{numero_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Importe</th>
+ 
+            <td colspan="3"><input id="movimientoscajaimporte" maxlength="12" size="12" value="{importe}" name="{importe_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="movimientoscajaButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="movimientoscajaButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="movimientoscajaButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record movimientoscaja --><br>
+<!-- BEGIN Grid movimientoscaja1 -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Movimientos de caja del día {dia}</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Cod. Mov.</th>
+ 
+          <th>Fecha</th>
+ 
+          <th>Compr.</th>
+ 
+          <th>Moneda</th>
+ 
+          <th>Descripción</th>
+ 
+          <th>Credito&nbsp;</th>
+ 
+          <th>Debito</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right"><a href="{idmovimiento_Src}" id="movimientoscaja1idmovimiento_{movimientoscaja1:rowNumber}">{idmovimiento}</a>&nbsp;</td> 
+          <td>{fecha}&nbsp;</td> 
+          <td>{numero}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{idmoneda}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{descripcion}<input id="movimientoscaja1idcodgasto_{movimientoscaja1:rowNumber}" type="hidden" value="{idcodgasto}" name="{idcodgasto_Name}"><input id="movimientoscaja1idcuota_{movimientoscaja1:rowNumber}" type="hidden" value="{idcuota}" name="{idcuota_Name}">&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{importec}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{imported}<input id="movimientoscaja1importe_{movimientoscaja1:rowNumber}" type="hidden" value="{importe}" name="{importe_Name}">&nbsp;<input id="movimientoscaja1tipomovimiento_{movimientoscaja1:rowNumber}" type="hidden" value="{tipomovimiento}" name="{tipomovimiento_Name}"></td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="7">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="7">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid movimientoscaja1 --><br>
+</p>
+</body>
+</html>

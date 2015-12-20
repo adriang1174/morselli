@@ -1,0 +1,319 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Salida de caja</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-D5407DC8
+
+var movimientoscaja_DatePicker_fecha = new Object(); 
+movimientoscaja_DatePicker_fecha.format           = "dd/mm/yyyy HH:nn:ss";
+movimientoscaja_DatePicker_fecha.style            = "Styles/SandBeach/Style.css";
+movimientoscaja_DatePicker_fecha.relativePathPart = "../";
+movimientoscaja_DatePicker_fecha.themeVersion = "3.0";
+
+var buscafecha_DatePicker_s_fecha = new Object(); 
+buscafecha_DatePicker_s_fecha.format           = "ShortDate";
+buscafecha_DatePicker_s_fecha.style            = "Styles/SandBeach/Style.css";
+buscafecha_DatePicker_s_fecha.relativePathPart = "../";
+buscafecha_DatePicker_s_fecha.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//movimientoscajaButton_Delete_OnClick @6-40E545A3
+function movimientoscajaButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End movimientoscajaButton_Delete_OnClick
+
+//bind_events @1-3AAD801D
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("movimientoscajaButton_Delete", "click", movimientoscajaButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>{Headercaja}</p>
+<p>
+<!-- BEGIN Record buscafecha -->
+<form id="buscafecha" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Ingrese fecha</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td><input id="buscafechafecha" maxlength="100" size="10" value="{fecha}" name="{fecha_Name}">
+              <!-- BEGIN DatePicker DatePicker_s_fecha --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="buscafechaDatePicker_s_fecha"><img id="buscafechaDatePicker_s_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_s_fecha --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="buscafechaButton_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record buscafecha --></p>
+<p>
+<!-- BEGIN Record movimientoscaja -->
+<form id="movimientoscaja" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Movimiento&nbsp;de&nbsp;caja&nbsp;</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha y Hora</th>
+ 
+            <td colspan="3"><input id="movimientoscajafecha" maxlength="100" value="{fecha}" name="{fecha_Name}">
+              <!-- BEGIN DatePicker DatePicker_fecha --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="movimientoscajaDatePicker_fecha"><img id="movimientoscajaDatePicker_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fecha --></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Moneda</th>
+ 
+            <td colspan="3">
+              <select id="movimientoscajaidmoneda" name="{idmoneda_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idmoneda_Options}
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Tipo de movimiento</th>
+ 
+            <td colspan="3">
+              <select id="movimientoscajatipomov" name="{tipomov_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {tipomov_Options}
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Código de gasto</th>
+ 
+            <td colspan="3">
+              <select id="movimientoscajaidcodgasto" name="{idcodgasto_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idcodgasto_Options}
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>&nbsp;</th>
+ 
+            <td colspan="3"><input id="movimientoscajagasto" style="WIDTH: 261px; HEIGHT: 22px" size="34" value="{gasto}" name="{gasto_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Importe</th>
+ 
+            <td colspan="3"><input id="movimientoscajaimporte" maxlength="12" size="12" value="{importe}" name="{importe_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="movimientoscajaButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="movimientoscajaButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="movimientoscajaButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record movimientoscaja --><br>
+<!-- BEGIN Grid movimientoscaja1 -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Movimientos en $ de caja del día {dia}</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Cod. Mov.</th>
+ 
+          <th>Fecha</th>
+ 
+          <th>Moneda</th>
+ 
+          <th>Descripción</th>
+ 
+          <th>&nbsp;Contrato Alq</th>
+ 
+          <th>Debito</th>
+ 
+          <th>Credito&nbsp;</th>
+ 
+          <th>Saldo&nbsp;</th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right"><a href="{idmovimiento_Src}" id="movimientoscaja1idmovimiento_{movimientoscaja1:rowNumber}">{idmovimiento}</a>&nbsp;</td> 
+          <td>{fecha}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{idmoneda}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{descripcion}&nbsp;{gasto}<input id="movimientoscaja1idcodgasto_{movimientoscaja1:rowNumber}" type="hidden" value="{idcodgasto}" name="{idcodgasto_Name}"><input id="movimientoscaja1idcuota_{movimientoscaja1:rowNumber}" type="hidden" value="{idcuota}" name="{idcuota_Name}">&nbsp;<input id="movimientoscaja1idhipoteca" type="hidden" value="{idhipoteca}" name="{idhipoteca_Name}"></td> 
+          <td style="TEXT-ALIGN: right">{idalquiler}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{imported}<input id="movimientoscaja1importe_{movimientoscaja1:rowNumber}" type="hidden" value="{importe}" name="{importe_Name}">&nbsp;<input id="movimientoscaja1tipomovimiento_{movimientoscaja1:rowNumber}" type="hidden" value="{tipomovimiento}" name="{tipomovimiento_Name}"></td> 
+          <td style="TEXT-ALIGN: right">{importec}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{saldo}&nbsp;</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="8">No hay registros</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="8">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid movimientoscaja1 --><br>
+&nbsp; 
+<!-- BEGIN Grid movimientoscaja2 -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Movimientos en u$s de caja del día {dia}</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Cod. Mov.</th>
+ 
+          <th>Fecha</th>
+ 
+          <th>Moneda</th>
+ 
+          <th>Descripción</th>
+ 
+          <th>Debito</th>
+ 
+          <th>Credito&nbsp;</th>
+ 
+          <th>Saldo&nbsp;</th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right"><a href="{idmovimiento_Src}" id="movimientoscaja2idmovimiento_{movimientoscaja2:rowNumber}">{idmovimiento}</a></td> 
+          <td>{fecha}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{idmoneda}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{descripcion}&nbsp;{gasto}<input id="movimientoscaja2idcodgasto_{movimientoscaja2:rowNumber}" type="hidden" value="{idcodgasto}" name="{idcodgasto_Name}"><input id="movimientoscaja2idcuota_{movimientoscaja2:rowNumber}" type="hidden" value="{idcuota}" name="{idcuota_Name}"></td> 
+          <td style="TEXT-ALIGN: right">{imported}<input id="movimientoscaja2importe_{movimientoscaja2:rowNumber}" type="hidden" value="{importe}" name="{importe_Name}"><input id="movimientoscaja2tipomovimiento_{movimientoscaja2:rowNumber}" type="hidden" value="{tipomovimiento}" name="{tipomovimiento_Name}"></td> 
+          <td style="TEXT-ALIGN: right">{importec}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{saldo}&nbsp;</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="7">No hay registros</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="7">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator --></td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid movimientoscaja2 --></p>
+</body>
+</html>

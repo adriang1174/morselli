@@ -1,0 +1,47 @@
+<link href="Styles/SandBeachMenu/Style.css" type="text/css" rel="stylesheet">
+<link href="{page:pathToRoot}Styles/adx.css" type="text/css" rel="stylesheet">
+<link href="{page:pathToRoot}Styles/SandBeachMenu/Menu.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+
+//Include Common JSFunctions @1-A2F3288E
+</script>
+<script language="JavaScript" src="{page:pathToRoot}ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-4A3825F5
+</script>
+<script language="JavaScript" src="{page:pathToRoot}js/menu/WCH.js" type="text/javascript"></script>
+<script language="JavaScript" src="{page:pathToRoot}js/menu/ADxMenu.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//bind_events @1-9EA45D7A
+function menucaja_bind_events() {
+    addEventHandler("menucajaMenu1Container", "load", load_ADxMenu);
+}
+//End bind_events
+
+
+//End CCS script
+</script>
+
+<!-- BEGIN Menu Menu1 -->
+<div class="MenuStyle SandBeach" id="HeaderMenu1Container">
+  <ul class="adxm {Menu1:MenuType} level1">
+    <!-- BEGIN Item -->
+    <!-- BEGIN OpenLevel -->
+    <ul class="level{Menu1:Item_Level}">
+      <!-- END OpenLevel -->
+      <li><a href="{ItemLink_Src}" class="{Menu1:Submenu}" target="{Menu1:Target}" title="{Menu1:Title}">{ItemLink}</a> 
+      <!-- BEGIN CloseItem --></li>
+ <!-- END CloseItem -->
+      <!-- BEGIN CloseLevel -->
+    </ul>
+ </li>
+ <!-- END CloseLevel --><!-- END Item -->
+  </ul>
+</div>
+<!-- END Menu Menu1 -->
+

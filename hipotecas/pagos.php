@@ -1,0 +1,995 @@
+<?php
+//Include Common Files @1-EC47D535
+define("RelativePath", "..");
+define("PathToCurrentPage", "/hipotecas/");
+define("FileName", "pagos.php");
+include_once(RelativePath . "/Common.php");
+include_once(RelativePath . "/Template.php");
+include_once(RelativePath . "/Sorter.php");
+include_once(RelativePath . "/Navigator.php");
+//End Include Common Files
+
+class clsGridalquileres_fichas_fichasp { //alquileres_fichas_fichasp class @2-241FF7AB
+
+//Variables @2-AC1EDBB9
+
+    // Public variables
+    var $ComponentType = "Grid";
+    var $ComponentName;
+    var $Visible;
+    var $Errors;
+    var $ErrorBlock;
+    var $ds;
+    var $DataSource;
+    var $PageSize;
+    var $IsEmpty;
+    var $ForceIteration = false;
+    var $HasRecord = false;
+    var $SorterName = "";
+    var $SorterDirection = "";
+    var $PageNumber;
+    var $RowNumber;
+    var $ControlsVisible = array();
+
+    var $CCSEvents = "";
+    var $CCSEventResult;
+
+    var $RelativePath = "";
+    var $Attributes;
+
+    // Grid Controls
+    var $StaticControls;
+    var $RowControls;
+//End Variables
+
+//Class_Initialize Event @2-7F0AD6CD
+    function clsGridalquileres_fichas_fichasp($RelativePath, & $Parent)
+    {
+        global $FileName;
+        global $CCSLocales;
+        global $DefaultDateFormat;
+        $this->ComponentName = "alquileres_fichas_fichasp";
+        $this->Visible = True;
+        $this->Parent = & $Parent;
+        $this->RelativePath = $RelativePath;
+        $this->Errors = new clsErrors();
+        $this->ErrorBlock = "Grid alquileres_fichas_fichasp";
+        $this->Attributes = new clsAttributes($this->ComponentName . ":");
+        $this->DataSource = new clsalquileres_fichas_fichaspDataSource($this);
+        $this->ds = & $this->DataSource;
+        $this->PageSize = CCGetParam($this->ComponentName . "PageSize", "");
+        if(!is_numeric($this->PageSize) || !strlen($this->PageSize))
+            $this->PageSize = 10;
+        else
+            $this->PageSize = intval($this->PageSize);
+        if ($this->PageSize > 100)
+            $this->PageSize = 100;
+        if($this->PageSize == 0)
+            $this->Errors->addError("<p>Form: Grid " . $this->ComponentName . "<br>Error: (CCS06) Invalid page size.</p>");
+        $this->PageNumber = intval(CCGetParam($this->ComponentName . "Page", 1));
+        if ($this->PageNumber <= 0) $this->PageNumber = 1;
+
+        $this->idhipoteca = & new clsControl(ccsLabel, "idhipoteca", "idhipoteca", ccsInteger, "", CCGetRequestParam("idhipoteca", ccsGet, NULL), $this);
+        $this->fechainicio = & new clsControl(ccsLabel, "fechainicio", "fechainicio", ccsDate, array("dd", "/", "mm", "/", "yyyy"), CCGetRequestParam("fechainicio", ccsGet, NULL), $this);
+        $this->fechafin = & new clsControl(ccsLabel, "fechafin", "fechafin", ccsDate, array("dd", "/", "mm", "/", "yyyy"), CCGetRequestParam("fechafin", ccsGet, NULL), $this);
+        $this->nombre = & new clsControl(ccsLabel, "nombre", "nombre", ccsText, "", CCGetRequestParam("nombre", ccsGet, NULL), $this);
+        $this->idpropiedad = & new clsControl(ccsLabel, "idpropiedad", "idpropiedad", ccsInteger, "", CCGetRequestParam("idpropiedad", ccsGet, NULL), $this);
+        $this->idficha = & new clsControl(ccsLabel, "idficha", "idficha", ccsInteger, "", CCGetRequestParam("idficha", ccsGet, NULL), $this);
+        $this->propiedades_direccion = & new clsControl(ccsLabel, "propiedades_direccion", "propiedades_direccion", ccsText, "", CCGetRequestParam("propiedades_direccion", ccsGet, NULL), $this);
+    }
+//End Class_Initialize Event
+
+//Initialize Method @2-90E704C5
+    function Initialize()
+    {
+        if(!$this->Visible) return;
+
+        $this->DataSource->PageSize = & $this->PageSize;
+        $this->DataSource->AbsolutePage = & $this->PageNumber;
+        $this->DataSource->SetOrder($this->SorterName, $this->SorterDirection);
+    }
+//End Initialize Method
+
+//Show Method @2-514C0853
+    function Show()
+    {
+        global $Tpl;
+        global $CCSLocales;
+        if(!$this->Visible) return;
+
+        $this->RowNumber = 0;
+
+        $this->DataSource->Parameters["urlidhipoteca"] = CCGetFromGet("idhipoteca", NULL);
+
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeSelect", $this);
+
+
+        $this->DataSource->Prepare();
+        $this->DataSource->Open();
+        $this->HasRecord = $this->DataSource->has_next_record();
+        $this->IsEmpty = ! $this->HasRecord;
+        $this->Attributes->Show();
+
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeShow", $this);
+        if(!$this->Visible) return;
+
+        $GridBlock = "Grid " . $this->ComponentName;
+        $ParentPath = $Tpl->block_path;
+        $Tpl->block_path = $ParentPath . "/" . $GridBlock;
+
+
+        if (!$this->IsEmpty) {
+            $this->ControlsVisible["idhipoteca"] = $this->idhipoteca->Visible;
+            $this->ControlsVisible["fechainicio"] = $this->fechainicio->Visible;
+            $this->ControlsVisible["fechafin"] = $this->fechafin->Visible;
+            $this->ControlsVisible["nombre"] = $this->nombre->Visible;
+            $this->ControlsVisible["idpropiedad"] = $this->idpropiedad->Visible;
+            $this->ControlsVisible["idficha"] = $this->idficha->Visible;
+            $this->ControlsVisible["propiedades_direccion"] = $this->propiedades_direccion->Visible;
+            while ($this->ForceIteration || (($this->RowNumber < $this->PageSize) &&  ($this->HasRecord = $this->DataSource->has_next_record()))) {
+                $this->RowNumber++;
+                if ($this->HasRecord) {
+                    $this->DataSource->next_record();
+                    $this->DataSource->SetValues();
+                }
+                $Tpl->block_path = $ParentPath . "/" . $GridBlock . "/Row";
+                $this->idhipoteca->SetValue($this->DataSource->idhipoteca->GetValue());
+                $this->fechainicio->SetValue($this->DataSource->fechainicio->GetValue());
+                $this->fechafin->SetValue($this->DataSource->fechafin->GetValue());
+                $this->nombre->SetValue($this->DataSource->nombre->GetValue());
+                $this->idpropiedad->SetValue($this->DataSource->idpropiedad->GetValue());
+                $this->idficha->SetValue($this->DataSource->idficha->GetValue());
+                $this->propiedades_direccion->SetValue($this->DataSource->propiedades_direccion->GetValue());
+                $this->Attributes->SetValue("rowNumber", $this->RowNumber);
+                $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeShowRow", $this);
+                $this->Attributes->Show();
+                $this->idhipoteca->Show();
+                $this->fechainicio->Show();
+                $this->fechafin->Show();
+                $this->nombre->Show();
+                $this->idpropiedad->Show();
+                $this->idficha->Show();
+                $this->propiedades_direccion->Show();
+                $Tpl->block_path = $ParentPath . "/" . $GridBlock;
+                $Tpl->parse("Row", true);
+            }
+        }
+        else { // Show NoRecords block if no records are found
+            $this->Attributes->Show();
+            $Tpl->parse("NoRecords", false);
+        }
+
+        $errors = $this->GetErrors();
+        if(strlen($errors))
+        {
+            $Tpl->replaceblock("", $errors);
+            $Tpl->block_path = $ParentPath;
+            return;
+        }
+        $Tpl->parse();
+        $Tpl->block_path = $ParentPath;
+        $this->DataSource->close();
+    }
+//End Show Method
+
+//GetErrors Method @2-4DE02842
+    function GetErrors()
+    {
+        $errors = "";
+        $errors = ComposeStrings($errors, $this->idhipoteca->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->fechainicio->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->fechafin->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->nombre->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->idpropiedad->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->idficha->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->propiedades_direccion->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->DataSource->Errors->ToString());
+        return $errors;
+    }
+//End GetErrors Method
+
+} //End alquileres_fichas_fichasp Class @2-FCB6E20C
+
+class clsalquileres_fichas_fichaspDataSource extends clsDBConnection1 {  //alquileres_fichas_fichaspDataSource Class @2-CFB5C304
+
+//DataSource Variables @2-F4360CCF
+    var $Parent = "";
+    var $CCSEvents = "";
+    var $CCSEventResult;
+    var $ErrorBlock;
+    var $CmdExecution;
+
+    var $CountSQL;
+    var $wp;
+
+
+    // Datasource fields
+    var $idhipoteca;
+    var $fechainicio;
+    var $fechafin;
+    var $nombre;
+    var $idpropiedad;
+    var $idficha;
+    var $propiedades_direccion;
+//End DataSource Variables
+
+//DataSourceClass_Initialize Event @2-7DBDBD4F
+    function clsalquileres_fichas_fichaspDataSource(& $Parent)
+    {
+        $this->Parent = & $Parent;
+        $this->ErrorBlock = "Grid alquileres_fichas_fichasp";
+        $this->Initialize();
+        $this->idhipoteca = new clsField("idhipoteca", ccsInteger, "");
+        
+        $this->fechainicio = new clsField("fechainicio", ccsDate, array("yyyy", "-", "mm", "-", "dd", " ", "HH", ":", "nn", ":", "ss"));
+        
+        $this->fechafin = new clsField("fechafin", ccsDate, array("yyyy", "-", "mm", "-", "dd", " ", "HH", ":", "nn", ":", "ss"));
+        
+        $this->nombre = new clsField("nombre", ccsText, "");
+        
+        $this->idpropiedad = new clsField("idpropiedad", ccsInteger, "");
+        
+        $this->idficha = new clsField("idficha", ccsInteger, "");
+        
+        $this->propiedades_direccion = new clsField("propiedades_direccion", ccsText, "");
+        
+
+    }
+//End DataSourceClass_Initialize Event
+
+//SetOrder Method @2-9E1383D1
+    function SetOrder($SorterName, $SorterDirection)
+    {
+        $this->Order = "";
+        $this->Order = CCGetOrder($this->Order, $SorterName, $SorterDirection, 
+            "");
+    }
+//End SetOrder Method
+
+//Prepare Method @2-30409FD7
+    function Prepare()
+    {
+        global $CCSLocales;
+        global $DefaultDateFormat;
+        $this->wp = new clsSQLParameters($this->ErrorBlock);
+        $this->wp->AddParameter("1", "urlidhipoteca", ccsInteger, "", "", $this->Parameters["urlidhipoteca"], "", false);
+        $this->wp->Criterion[1] = $this->wp->Operation(opEqual, "hipotecas.idhipoteca", $this->wp->GetDBValue("1"), $this->ToSQL($this->wp->GetDBValue("1"), ccsInteger),false);
+        $this->Where = 
+             $this->wp->Criterion[1];
+    }
+//End Prepare Method
+
+//Open Method @2-B5E3E593
+    function Open()
+    {
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeBuildSelect", $this->Parent);
+        $this->CountSQL = "SELECT COUNT(*)\n\n" .
+        "FROM fichas INNER JOIN ((propiedades INNER JOIN hipotecas ON\n\n" .
+        "propiedades.idpropiedad = hipotecas.idpropiedad) INNER JOIN fichaspropiedades ON\n\n" .
+        "propiedades.idpropiedad = fichaspropiedades.idpropiedad) ON\n\n" .
+        "fichas.idficha = fichaspropiedades.idficha";
+        $this->SQL = "SELECT TOP {SqlParam_endRecord} propiedades.direccion AS propiedades_direccion, nombre, hipotecas.*, fichaspropiedades.* \n\n" .
+        "FROM fichas INNER JOIN ((propiedades INNER JOIN hipotecas ON\n\n" .
+        "propiedades.idpropiedad = hipotecas.idpropiedad) INNER JOIN fichaspropiedades ON\n\n" .
+        "propiedades.idpropiedad = fichaspropiedades.idpropiedad) ON\n\n" .
+        "fichas.idficha = fichaspropiedades.idficha {SQL_Where} {SQL_OrderBy}";
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeExecuteSelect", $this->Parent);
+        if ($this->CountSQL) 
+            $this->RecordsCount = CCGetDBValue(CCBuildSQL($this->CountSQL, $this->Where, ""), $this);
+        else
+            $this->RecordsCount = "CCS not counted";
+        $this->query($this->OptimizeSQL(CCBuildSQL($this->SQL, $this->Where, $this->Order)));
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "AfterExecuteSelect", $this->Parent);
+        $this->MoveToPage($this->AbsolutePage);
+    }
+//End Open Method
+
+//SetValues Method @2-B32803A9
+    function SetValues()
+    {
+        $this->idhipoteca->SetDBValue(trim($this->f("idhipoteca")));
+        $this->fechainicio->SetDBValue(trim($this->f("fechainicio")));
+        $this->fechafin->SetDBValue(trim($this->f("fechafin")));
+        $this->nombre->SetDBValue($this->f("nombre"));
+        $this->idpropiedad->SetDBValue(trim($this->f("idpropiedad")));
+        $this->idficha->SetDBValue(trim($this->f("idficha")));
+        $this->propiedades_direccion->SetDBValue($this->f("propiedades_direccion"));
+    }
+//End SetValues Method
+
+} //End alquileres_fichas_fichaspDataSource Class @2-FCB6E20C
+
+class clsGridcuotas { //cuotas class @29-F6FD2B3C
+
+//Variables @29-AC1EDBB9
+
+    // Public variables
+    var $ComponentType = "Grid";
+    var $ComponentName;
+    var $Visible;
+    var $Errors;
+    var $ErrorBlock;
+    var $ds;
+    var $DataSource;
+    var $PageSize;
+    var $IsEmpty;
+    var $ForceIteration = false;
+    var $HasRecord = false;
+    var $SorterName = "";
+    var $SorterDirection = "";
+    var $PageNumber;
+    var $RowNumber;
+    var $ControlsVisible = array();
+
+    var $CCSEvents = "";
+    var $CCSEventResult;
+
+    var $RelativePath = "";
+    var $Attributes;
+
+    // Grid Controls
+    var $StaticControls;
+    var $RowControls;
+//End Variables
+
+//Class_Initialize Event @29-74F6B531
+    function clsGridcuotas($RelativePath, & $Parent)
+    {
+        global $FileName;
+        global $CCSLocales;
+        global $DefaultDateFormat;
+        $this->ComponentName = "cuotas";
+        $this->Visible = True;
+        $this->Parent = & $Parent;
+        $this->RelativePath = $RelativePath;
+        $this->Errors = new clsErrors();
+        $this->ErrorBlock = "Grid cuotas";
+        $this->Attributes = new clsAttributes($this->ComponentName . ":");
+        $this->DataSource = new clscuotasDataSource($this);
+        $this->ds = & $this->DataSource;
+        $this->PageSize = CCGetParam($this->ComponentName . "PageSize", "");
+        if(!is_numeric($this->PageSize) || !strlen($this->PageSize))
+            $this->PageSize = 30;
+        else
+            $this->PageSize = intval($this->PageSize);
+        if ($this->PageSize > 100)
+            $this->PageSize = 100;
+        if($this->PageSize == 0)
+            $this->Errors->addError("<p>Form: Grid " . $this->ComponentName . "<br>Error: (CCS06) Invalid page size.</p>");
+        $this->PageNumber = intval(CCGetParam($this->ComponentName . "Page", 1));
+        if ($this->PageNumber <= 0) $this->PageNumber = 1;
+
+        $this->fechavencimiento = & new clsControl(ccsLabel, "fechavencimiento", "fechavencimiento", ccsDate, array("dd", "/", "mm", "/", "yyyy"), CCGetRequestParam("fechavencimiento", ccsGet, NULL), $this);
+        $this->importe = & new clsControl(ccsLabel, "importe", "importe", ccsText, "", CCGetRequestParam("importe", ccsGet, NULL), $this);
+        $this->ano = & new clsControl(ccsLabel, "ano", "ano", ccsText, "", CCGetRequestParam("ano", ccsGet, NULL), $this);
+        $this->mes = & new clsControl(ccsLabel, "mes", "mes", ccsText, "", CCGetRequestParam("mes", ccsGet, NULL), $this);
+        $this->paga = & new clsControl(ccsCheckBox, "paga", "paga", ccsBoolean, $CCSLocales->GetFormatInfo("BooleanFormat"), CCGetRequestParam("paga", ccsGet, NULL), $this);
+        $this->paga->CheckedValue = true;
+        $this->paga->UncheckedValue = false;
+        $this->Navigator = & new clsNavigator($this->ComponentName, "Navigator", $FileName, 10, tpSimple, $this);
+        $this->Navigator->PageSizes = array("1", "5", "10", "25", "50");
+        $this->Link2 = & new clsControl(ccsLink, "Link2", "Link2", ccsText, "", CCGetRequestParam("Link2", ccsGet, NULL), $this);
+        $this->Link2->Parameters = CCGetQueryString("QueryString", array("ccsForm"));
+        $this->Link2->Parameters = CCAddParam($this->Link2->Parameters, "idhipoteca", CCGetFromGet("idhipoteca", NULL));
+        $this->Link2->Page = "cuota_maint.php";
+        $this->Button1 = & new clsButton("Button1", ccsGet, $this);
+        $this->idhipoteca = & new clsControl(ccsHidden, "idhipoteca", "idhipoteca", ccsText, "", CCGetRequestParam("idhipoteca", ccsGet, NULL), $this);
+        $this->lblidhipoteca = & new clsControl(ccsLabel, "lblidhipoteca", "lblidhipoteca", ccsText, "", CCGetRequestParam("lblidhipoteca", ccsGet, NULL), $this);
+    }
+//End Class_Initialize Event
+
+//Initialize Method @29-90E704C5
+    function Initialize()
+    {
+        if(!$this->Visible) return;
+
+        $this->DataSource->PageSize = & $this->PageSize;
+        $this->DataSource->AbsolutePage = & $this->PageNumber;
+        $this->DataSource->SetOrder($this->SorterName, $this->SorterDirection);
+    }
+//End Initialize Method
+
+//Show Method @29-A6C872B9
+    function Show()
+    {
+        global $Tpl;
+        global $CCSLocales;
+        if(!$this->Visible) return;
+
+        $this->RowNumber = 0;
+
+        $this->DataSource->Parameters["urlidhipoteca"] = CCGetFromGet("idhipoteca", NULL);
+
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeSelect", $this);
+
+
+        $this->DataSource->Prepare();
+        $this->DataSource->Open();
+        $this->HasRecord = $this->DataSource->has_next_record();
+        $this->IsEmpty = ! $this->HasRecord;
+        $this->Attributes->Show();
+
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeShow", $this);
+        if(!$this->Visible) return;
+
+        $GridBlock = "Grid " . $this->ComponentName;
+        $ParentPath = $Tpl->block_path;
+        $Tpl->block_path = $ParentPath . "/" . $GridBlock;
+
+
+        if (!$this->IsEmpty) {
+            $this->ControlsVisible["fechavencimiento"] = $this->fechavencimiento->Visible;
+            $this->ControlsVisible["importe"] = $this->importe->Visible;
+            $this->ControlsVisible["ano"] = $this->ano->Visible;
+            $this->ControlsVisible["mes"] = $this->mes->Visible;
+            $this->ControlsVisible["paga"] = $this->paga->Visible;
+            while ($this->ForceIteration || (($this->RowNumber < $this->PageSize) &&  ($this->HasRecord = $this->DataSource->has_next_record()))) {
+                $this->RowNumber++;
+                if ($this->HasRecord) {
+                    $this->DataSource->next_record();
+                    $this->DataSource->SetValues();
+                }
+                $Tpl->block_path = $ParentPath . "/" . $GridBlock . "/Row";
+                $this->fechavencimiento->SetValue($this->DataSource->fechavencimiento->GetValue());
+                $this->importe->SetValue($this->DataSource->importe->GetValue());
+                $this->ano->SetValue($this->DataSource->ano->GetValue());
+                $this->mes->SetValue($this->DataSource->mes->GetValue());
+                $this->Attributes->SetValue("rowNumber", $this->RowNumber);
+                $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeShowRow", $this);
+                $this->Attributes->Show();
+                $this->fechavencimiento->Show();
+                $this->importe->Show();
+                $this->ano->Show();
+                $this->mes->Show();
+                $this->paga->Show();
+                $Tpl->block_path = $ParentPath . "/" . $GridBlock;
+                $Tpl->parse("Row", true);
+            }
+        }
+        else { // Show NoRecords block if no records are found
+            $this->Attributes->Show();
+            $Tpl->parse("NoRecords", false);
+        }
+
+        $errors = $this->GetErrors();
+        if(strlen($errors))
+        {
+            $Tpl->replaceblock("", $errors);
+            $Tpl->block_path = $ParentPath;
+            return;
+        }
+        $this->Navigator->PageNumber = $this->DataSource->AbsolutePage;
+        $this->Navigator->PageSize = $this->PageSize;
+        if ($this->DataSource->RecordsCount == "CCS not counted")
+            $this->Navigator->TotalPages = $this->DataSource->AbsolutePage + ($this->DataSource->next_record() ? 1 : 0);
+        else
+            $this->Navigator->TotalPages = $this->DataSource->PageCount();
+        if ($this->Navigator->TotalPages <= 1) {
+            $this->Navigator->Visible = false;
+        }
+        $this->Navigator->Show();
+        $this->Link2->Show();
+        $this->Button1->Show();
+        $this->idhipoteca->Show();
+        $this->lblidhipoteca->Show();
+        $Tpl->parse();
+        $Tpl->block_path = $ParentPath;
+        $this->DataSource->close();
+    }
+//End Show Method
+
+//GetErrors Method @29-ABEC528D
+    function GetErrors()
+    {
+        $errors = "";
+        $errors = ComposeStrings($errors, $this->fechavencimiento->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->importe->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->ano->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->mes->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->paga->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->DataSource->Errors->ToString());
+        return $errors;
+    }
+//End GetErrors Method
+
+} //End cuotas Class @29-FCB6E20C
+
+class clscuotasDataSource extends clsDBConnection1 {  //cuotasDataSource Class @29-8D383C10
+
+//DataSource Variables @29-CE5F26E8
+    var $Parent = "";
+    var $CCSEvents = "";
+    var $CCSEventResult;
+    var $ErrorBlock;
+    var $CmdExecution;
+
+    var $CountSQL;
+    var $wp;
+
+
+    // Datasource fields
+    var $fechavencimiento;
+    var $importe;
+    var $ano;
+    var $mes;
+//End DataSource Variables
+
+//DataSourceClass_Initialize Event @29-489E0524
+    function clscuotasDataSource(& $Parent)
+    {
+        $this->Parent = & $Parent;
+        $this->ErrorBlock = "Grid cuotas";
+        $this->Initialize();
+        $this->fechavencimiento = new clsField("fechavencimiento", ccsDate, array("yyyy", "-", "mm", "-", "dd", " ", "HH", ":", "nn", ":", "ss"));
+        
+        $this->importe = new clsField("importe", ccsText, "");
+        
+        $this->ano = new clsField("ano", ccsText, "");
+        
+        $this->mes = new clsField("mes", ccsText, "");
+        
+
+    }
+//End DataSourceClass_Initialize Event
+
+//SetOrder Method @29-3C4E1AE0
+    function SetOrder($SorterName, $SorterDirection)
+    {
+        $this->Order = "fechavencimiento, ano, mes";
+        $this->Order = CCGetOrder($this->Order, $SorterName, $SorterDirection, 
+            "");
+    }
+//End SetOrder Method
+
+//Prepare Method @29-F6A66F26
+    function Prepare()
+    {
+        global $CCSLocales;
+        global $DefaultDateFormat;
+        $this->wp = new clsSQLParameters($this->ErrorBlock);
+        $this->wp->AddParameter("1", "urlidhipoteca", ccsInteger, "", "", $this->Parameters["urlidhipoteca"], 0, false);
+    }
+//End Prepare Method
+
+//Open Method @29-2098A99D
+    function Open()
+    {
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeBuildSelect", $this->Parent);
+        $this->CountSQL = "SELECT COUNT(*) FROM (SELECT fechavencimiento, ano, mes ,sum(importe) as importe\n" .
+        "FROM cuotas\n" .
+        "WHERE ( fechapago is null )\n" .
+        "AND idhipoteca = " . $this->SQLValue($this->wp->GetDBValue("1"), ccsInteger) . "\n" .
+        "AND ( idtipocuota = 4 ) \n" .
+        "group by  fechavencimiento, ano, mes) cnt";
+        $this->SQL = "SELECT TOP {SqlParam_endRecord} fechavencimiento, ano, mes ,sum(importe) as importe\n" .
+        "FROM cuotas\n" .
+        "WHERE ( fechapago is null )\n" .
+        "AND idhipoteca = " . $this->SQLValue($this->wp->GetDBValue("1"), ccsInteger) . "\n" .
+        "AND ( idtipocuota = 4 ) \n" .
+        "group by  fechavencimiento, ano, mes {SQL_OrderBy}";
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeExecuteSelect", $this->Parent);
+        if ($this->CountSQL) 
+            $this->RecordsCount = CCGetDBValue(CCBuildSQL($this->CountSQL, $this->Where, ""), $this);
+        else
+            $this->RecordsCount = "CCS not counted";
+        $this->query($this->OptimizeSQL(CCBuildSQL($this->SQL, $this->Where, $this->Order)));
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "AfterExecuteSelect", $this->Parent);
+        $this->MoveToPage($this->AbsolutePage);
+    }
+//End Open Method
+
+//SetValues Method @29-A059564E
+    function SetValues()
+    {
+        $this->fechavencimiento->SetDBValue(trim($this->f("fechavencimiento")));
+        $this->importe->SetDBValue($this->f("importe"));
+        $this->ano->SetDBValue($this->f("ano"));
+        $this->mes->SetDBValue($this->f("mes"));
+    }
+//End SetValues Method
+
+} //End cuotasDataSource Class @29-FCB6E20C
+
+//Include Page implementation @49-3DD2EFDC
+include_once(RelativePath . "/Header.php");
+//End Include Page implementation
+
+class clsGridcuotas1 { //cuotas1 class @83-30DA611A
+
+//Variables @83-AC1EDBB9
+
+    // Public variables
+    var $ComponentType = "Grid";
+    var $ComponentName;
+    var $Visible;
+    var $Errors;
+    var $ErrorBlock;
+    var $ds;
+    var $DataSource;
+    var $PageSize;
+    var $IsEmpty;
+    var $ForceIteration = false;
+    var $HasRecord = false;
+    var $SorterName = "";
+    var $SorterDirection = "";
+    var $PageNumber;
+    var $RowNumber;
+    var $ControlsVisible = array();
+
+    var $CCSEvents = "";
+    var $CCSEventResult;
+
+    var $RelativePath = "";
+    var $Attributes;
+
+    // Grid Controls
+    var $StaticControls;
+    var $RowControls;
+//End Variables
+
+//Class_Initialize Event @83-0DE2D21B
+    function clsGridcuotas1($RelativePath, & $Parent)
+    {
+        global $FileName;
+        global $CCSLocales;
+        global $DefaultDateFormat;
+        $this->ComponentName = "cuotas1";
+        $this->Visible = True;
+        $this->Parent = & $Parent;
+        $this->RelativePath = $RelativePath;
+        $this->Errors = new clsErrors();
+        $this->ErrorBlock = "Grid cuotas1";
+        $this->Attributes = new clsAttributes($this->ComponentName . ":");
+        $this->DataSource = new clscuotas1DataSource($this);
+        $this->ds = & $this->DataSource;
+        $this->PageSize = CCGetParam($this->ComponentName . "PageSize", "");
+        if(!is_numeric($this->PageSize) || !strlen($this->PageSize))
+            $this->PageSize = 30;
+        else
+            $this->PageSize = intval($this->PageSize);
+        if ($this->PageSize > 100)
+            $this->PageSize = 100;
+        if($this->PageSize == 0)
+            $this->Errors->addError("<p>Form: Grid " . $this->ComponentName . "<br>Error: (CCS06) Invalid page size.</p>");
+        $this->PageNumber = intval(CCGetParam($this->ComponentName . "Page", 1));
+        if ($this->PageNumber <= 0) $this->PageNumber = 1;
+
+        $this->fechavencimiento = & new clsControl(ccsLabel, "fechavencimiento", "fechavencimiento", ccsDate, array("dd", "/", "mm", "/", "yyyy"), CCGetRequestParam("fechavencimiento", ccsGet, NULL), $this);
+        $this->importe = & new clsControl(ccsLabel, "importe", "importe", ccsText, "", CCGetRequestParam("importe", ccsGet, NULL), $this);
+        $this->ano = & new clsControl(ccsLabel, "ano", "ano", ccsText, "", CCGetRequestParam("ano", ccsGet, NULL), $this);
+        $this->mes = & new clsControl(ccsLabel, "mes", "mes", ccsText, "", CCGetRequestParam("mes", ccsGet, NULL), $this);
+        $this->Navigator = & new clsNavigator($this->ComponentName, "Navigator", $FileName, 10, tpSimple, $this);
+        $this->Navigator->PageSizes = array("1", "5", "10", "25", "50");
+        $this->idhipoteca = & new clsControl(ccsHidden, "idhipoteca", "idhipoteca", ccsText, "", CCGetRequestParam("idhipoteca", ccsGet, NULL), $this);
+        $this->lblidhipoteca = & new clsControl(ccsLabel, "lblidhipoteca", "lblidhipoteca", ccsText, "", CCGetRequestParam("lblidhipoteca", ccsGet, NULL), $this);
+    }
+//End Class_Initialize Event
+
+//Initialize Method @83-90E704C5
+    function Initialize()
+    {
+        if(!$this->Visible) return;
+
+        $this->DataSource->PageSize = & $this->PageSize;
+        $this->DataSource->AbsolutePage = & $this->PageNumber;
+        $this->DataSource->SetOrder($this->SorterName, $this->SorterDirection);
+    }
+//End Initialize Method
+
+//Show Method @83-89BC7A60
+    function Show()
+    {
+        global $Tpl;
+        global $CCSLocales;
+        if(!$this->Visible) return;
+
+        $this->RowNumber = 0;
+
+        $this->DataSource->Parameters["urlidhipoteca"] = CCGetFromGet("idhipoteca", NULL);
+
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeSelect", $this);
+
+
+        $this->DataSource->Prepare();
+        $this->DataSource->Open();
+        $this->HasRecord = $this->DataSource->has_next_record();
+        $this->IsEmpty = ! $this->HasRecord;
+        $this->Attributes->Show();
+
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeShow", $this);
+        if(!$this->Visible) return;
+
+        $GridBlock = "Grid " . $this->ComponentName;
+        $ParentPath = $Tpl->block_path;
+        $Tpl->block_path = $ParentPath . "/" . $GridBlock;
+
+
+        if (!$this->IsEmpty) {
+            $this->ControlsVisible["fechavencimiento"] = $this->fechavencimiento->Visible;
+            $this->ControlsVisible["importe"] = $this->importe->Visible;
+            $this->ControlsVisible["ano"] = $this->ano->Visible;
+            $this->ControlsVisible["mes"] = $this->mes->Visible;
+            while ($this->ForceIteration || (($this->RowNumber < $this->PageSize) &&  ($this->HasRecord = $this->DataSource->has_next_record()))) {
+                $this->RowNumber++;
+                if ($this->HasRecord) {
+                    $this->DataSource->next_record();
+                    $this->DataSource->SetValues();
+                }
+                $Tpl->block_path = $ParentPath . "/" . $GridBlock . "/Row";
+                $this->fechavencimiento->SetValue($this->DataSource->fechavencimiento->GetValue());
+                $this->importe->SetValue($this->DataSource->importe->GetValue());
+                $this->ano->SetValue($this->DataSource->ano->GetValue());
+                $this->mes->SetValue($this->DataSource->mes->GetValue());
+                $this->Attributes->SetValue("rowNumber", $this->RowNumber);
+                $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeShowRow", $this);
+                $this->Attributes->Show();
+                $this->fechavencimiento->Show();
+                $this->importe->Show();
+                $this->ano->Show();
+                $this->mes->Show();
+                $Tpl->block_path = $ParentPath . "/" . $GridBlock;
+                $Tpl->parse("Row", true);
+            }
+        }
+        else { // Show NoRecords block if no records are found
+            $this->Attributes->Show();
+            $Tpl->parse("NoRecords", false);
+        }
+
+        $errors = $this->GetErrors();
+        if(strlen($errors))
+        {
+            $Tpl->replaceblock("", $errors);
+            $Tpl->block_path = $ParentPath;
+            return;
+        }
+        $this->Navigator->PageNumber = $this->DataSource->AbsolutePage;
+        $this->Navigator->PageSize = $this->PageSize;
+        if ($this->DataSource->RecordsCount == "CCS not counted")
+            $this->Navigator->TotalPages = $this->DataSource->AbsolutePage + ($this->DataSource->next_record() ? 1 : 0);
+        else
+            $this->Navigator->TotalPages = $this->DataSource->PageCount();
+        if ($this->Navigator->TotalPages <= 1) {
+            $this->Navigator->Visible = false;
+        }
+        $this->Navigator->Show();
+        $this->idhipoteca->Show();
+        $this->lblidhipoteca->Show();
+        $Tpl->parse();
+        $Tpl->block_path = $ParentPath;
+        $this->DataSource->close();
+    }
+//End Show Method
+
+//GetErrors Method @83-361FF58E
+    function GetErrors()
+    {
+        $errors = "";
+        $errors = ComposeStrings($errors, $this->fechavencimiento->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->importe->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->ano->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->mes->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->Errors->ToString());
+        $errors = ComposeStrings($errors, $this->DataSource->Errors->ToString());
+        return $errors;
+    }
+//End GetErrors Method
+
+} //End cuotas1 Class @83-FCB6E20C
+
+class clscuotas1DataSource extends clsDBConnection1 {  //cuotas1DataSource Class @83-E078518F
+
+//DataSource Variables @83-CE5F26E8
+    var $Parent = "";
+    var $CCSEvents = "";
+    var $CCSEventResult;
+    var $ErrorBlock;
+    var $CmdExecution;
+
+    var $CountSQL;
+    var $wp;
+
+
+    // Datasource fields
+    var $fechavencimiento;
+    var $importe;
+    var $ano;
+    var $mes;
+//End DataSource Variables
+
+//DataSourceClass_Initialize Event @83-0A793DB6
+    function clscuotas1DataSource(& $Parent)
+    {
+        $this->Parent = & $Parent;
+        $this->ErrorBlock = "Grid cuotas1";
+        $this->Initialize();
+        $this->fechavencimiento = new clsField("fechavencimiento", ccsDate, array("yyyy", "-", "mm", "-", "dd", " ", "HH", ":", "nn", ":", "ss"));
+        
+        $this->importe = new clsField("importe", ccsText, "");
+        
+        $this->ano = new clsField("ano", ccsText, "");
+        
+        $this->mes = new clsField("mes", ccsText, "");
+        
+
+    }
+//End DataSourceClass_Initialize Event
+
+//SetOrder Method @83-3C4E1AE0
+    function SetOrder($SorterName, $SorterDirection)
+    {
+        $this->Order = "fechavencimiento, ano, mes";
+        $this->Order = CCGetOrder($this->Order, $SorterName, $SorterDirection, 
+            "");
+    }
+//End SetOrder Method
+
+//Prepare Method @83-F6A66F26
+    function Prepare()
+    {
+        global $CCSLocales;
+        global $DefaultDateFormat;
+        $this->wp = new clsSQLParameters($this->ErrorBlock);
+        $this->wp->AddParameter("1", "urlidhipoteca", ccsInteger, "", "", $this->Parameters["urlidhipoteca"], 0, false);
+    }
+//End Prepare Method
+
+//Open Method @83-34AA3320
+    function Open()
+    {
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeBuildSelect", $this->Parent);
+        $this->CountSQL = "SELECT COUNT(*) FROM (SELECT fechavencimiento, ano, mes ,sum(importe) as importe\n" .
+        "FROM cuotas\n" .
+        "WHERE ( fechapago is not null )\n" .
+        "AND idhipoteca = " . $this->SQLValue($this->wp->GetDBValue("1"), ccsInteger) . "\n" .
+        "AND ( idtipocuota = 4 ) \n" .
+        "group by  fechavencimiento, ano, mes) cnt";
+        $this->SQL = "SELECT TOP {SqlParam_endRecord} fechavencimiento, ano, mes ,sum(importe) as importe\n" .
+        "FROM cuotas\n" .
+        "WHERE ( fechapago is not null )\n" .
+        "AND idhipoteca = " . $this->SQLValue($this->wp->GetDBValue("1"), ccsInteger) . "\n" .
+        "AND ( idtipocuota = 4 ) \n" .
+        "group by  fechavencimiento, ano, mes {SQL_OrderBy}";
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "BeforeExecuteSelect", $this->Parent);
+        if ($this->CountSQL) 
+            $this->RecordsCount = CCGetDBValue(CCBuildSQL($this->CountSQL, $this->Where, ""), $this);
+        else
+            $this->RecordsCount = "CCS not counted";
+        $this->query($this->OptimizeSQL(CCBuildSQL($this->SQL, $this->Where, $this->Order)));
+        $this->CCSEventResult = CCGetEvent($this->CCSEvents, "AfterExecuteSelect", $this->Parent);
+        $this->MoveToPage($this->AbsolutePage);
+    }
+//End Open Method
+
+//SetValues Method @83-A059564E
+    function SetValues()
+    {
+        $this->fechavencimiento->SetDBValue(trim($this->f("fechavencimiento")));
+        $this->importe->SetDBValue($this->f("importe"));
+        $this->ano->SetDBValue($this->f("ano"));
+        $this->mes->SetDBValue($this->f("mes"));
+    }
+//End SetValues Method
+
+} //End cuotas1DataSource Class @83-FCB6E20C
+
+//Initialize Page @1-58BC2C7F
+// Variables
+$FileName = "";
+$Redirect = "";
+$Tpl = "";
+$TemplateFileName = "";
+$BlockToParse = "";
+$ComponentName = "";
+$Attributes = "";
+
+// Events;
+$CCSEvents = "";
+$CCSEventResult = "";
+
+$FileName = FileName;
+$Redirect = "";
+$TemplateFileName = "pagos.html";
+$BlockToParse = "main";
+$TemplateEncoding = "CP1252";
+$ContentType = "text/html";
+$PathToRoot = "../";
+$Charset = $Charset ? $Charset : "windows-1252";
+//End Initialize Page
+
+//Include events file @1-F57B267D
+include_once("./pagos_events.php");
+//End Include events file
+
+//Before Initialize @1-E870CEBC
+$CCSEventResult = CCGetEvent($CCSEvents, "BeforeInitialize", $MainPage);
+//End Before Initialize
+
+//Initialize Objects @1-9A989FD5
+$DBConnection1 = new clsDBConnection1();
+$MainPage->Connections["Connection1"] = & $DBConnection1;
+$Attributes = new clsAttributes("page:");
+$MainPage->Attributes = & $Attributes;
+
+// Controls
+$alquileres_fichas_fichasp = & new clsGridalquileres_fichas_fichasp("", $MainPage);
+$cuotas = & new clsGridcuotas("", $MainPage);
+$Header = & new clsHeader("../", "Header", $MainPage);
+$Header->Initialize();
+$cuotas1 = & new clsGridcuotas1("", $MainPage);
+$MainPage->alquileres_fichas_fichasp = & $alquileres_fichas_fichasp;
+$MainPage->cuotas = & $cuotas;
+$MainPage->Header = & $Header;
+$MainPage->cuotas1 = & $cuotas1;
+$alquileres_fichas_fichasp->Initialize();
+$cuotas->Initialize();
+$cuotas1->Initialize();
+
+BindEvents();
+
+$CCSEventResult = CCGetEvent($CCSEvents, "AfterInitialize", $MainPage);
+
+if ($Charset) {
+    header("Content-Type: " . $ContentType . "; charset=" . $Charset);
+} else {
+    header("Content-Type: " . $ContentType);
+}
+//End Initialize Objects
+
+//Initialize HTML Template @1-52F9C312
+$CCSEventResult = CCGetEvent($CCSEvents, "OnInitializeView", $MainPage);
+$Tpl = new clsTemplate($FileEncoding, $TemplateEncoding);
+$Tpl->LoadTemplate(PathToCurrentPage . $TemplateFileName, $BlockToParse, "CP1252");
+$Tpl->block_path = "/$BlockToParse";
+$CCSEventResult = CCGetEvent($CCSEvents, "BeforeShow", $MainPage);
+$Attributes->SetValue("pathToRoot", "../");
+$Attributes->Show();
+//End Initialize HTML Template
+
+//Execute Components @1-47111282
+$Header->Operations();
+//End Execute Components
+
+//Go to destination page @1-0F9BBF85
+if($Redirect)
+{
+    $CCSEventResult = CCGetEvent($CCSEvents, "BeforeUnload", $MainPage);
+    $DBConnection1->close();
+    header("Location: " . $Redirect);
+    unset($alquileres_fichas_fichasp);
+    unset($cuotas);
+    $Header->Class_Terminate();
+    unset($Header);
+    unset($cuotas1);
+    unset($Tpl);
+    exit;
+}
+//End Go to destination page
+
+//Show Page @1-F7311AA4
+$alquileres_fichas_fichasp->Show();
+$cuotas->Show();
+$Header->Show();
+$cuotas1->Show();
+$Tpl->block_path = "";
+$Tpl->Parse($BlockToParse, false);
+if (!isset($main_block)) $main_block = $Tpl->GetVar($BlockToParse);
+$CCSEventResult = CCGetEvent($CCSEvents, "BeforeOutput", $MainPage);
+if ($CCSEventResult) echo $main_block;
+//End Show Page
+
+//Unload Page @1-070BB2E1
+$CCSEventResult = CCGetEvent($CCSEvents, "BeforeUnload", $MainPage);
+$DBConnection1->close();
+unset($alquileres_fichas_fichasp);
+unset($cuotas);
+$Header->Class_Terminate();
+unset($Header);
+unset($cuotas1);
+unset($Tpl);
+//End Unload Page
+
+
+?>

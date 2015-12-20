@@ -1,0 +1,222 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Fichas</title>
+<meta content="CodeCharge Studio 3.2.0.2" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-23449F28
+
+var fichas_DatePicker_fechanac = new Object(); 
+fichas_DatePicker_fechanac.format           = "ShortDate";
+fichas_DatePicker_fechanac.style            = "Styles/SandBeach/Style.css";
+fichas_DatePicker_fechanac.relativePathPart = "../";
+fichas_DatePicker_fechanac.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//fichasButton_Delete_OnClick @5-2F723B09
+function fichasButton_Delete_OnClick()
+{
+    var result = true;
+//End fichasButton_Delete_OnClick
+
+//Confirmation Message @34-743574D8
+    return confirm('Ud. se dispone a eliminar esta Ficha. Esta operación no puede deshacerse, confirme si está seguro.-');
+//End Confirmation Message
+
+//Close fichasButton_Delete_OnClick @5-BC33A33A
+    return result;
+}
+//End Close fichasButton_Delete_OnClick
+
+//DEL  window.print();
+
+//bind_events @1-ED471A26
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    if (functionExists("Footer_bind_events")) Footer_bind_events();
+    addEventHandler("fichasButton_Delete", "click", fichasButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header} </p>
+<!-- BEGIN Record fichas -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Agregar/Editar Fichas </th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="8">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Apellido y Nombre&nbsp;<font color="#ff0000">*</font></th>
+ 
+            <td colspan="7"><input id="fichasnombre" maxlength="50" size="50" value="{nombre}" name="{nombre_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Direccion <font color="#ff0000">*</font></th>
+ 
+            <td colspan="3"><input id="fichasdireccion" maxlength="128" size="50" value="{direccion}" name="{direccion_Name}"></td> 
+            <th>Localidad <font color="#ff0000">*</font></th>
+ 
+            <td colspan="3"><input id="fichaslocalidad" maxlength="40" size="40" value="{localidad}" name="{localidad_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Provincia</th>
+ 
+            <td colspan="3">
+              <select id="fichasprovincia" name="{provincia_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {provincia_Options}
+              </select>
+ </td> 
+            <th>Código postal</th>
+ 
+            <td colspan="3"><input id="fichascodigopostal" maxlength="20" value="{codigopostal}" name="{codigopostal_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Telefono <font color="#ff0000">*</font></th>
+ 
+            <td colspan="3"><input id="fichastelefono" maxlength="20" value="{telefono}" name="{telefono_Name}" size="20"></td> 
+            <th>Celular</th>
+ 
+            <td colspan="3"><input id="fichascelular" maxlength="20" value="{celular}" name="{celular_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>e-mail</th>
+ 
+            <td colspan="3"><input id="fichasemail" maxlength="50" size="50" value="{email}" name="{email_Name}"></td> 
+            <th>Actividad</th>
+ 
+            <td colspan="3"><input id="fichasactividad" maxlength="20" value="{actividad}" name="{actividad_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Tipo de Documento <font color="#ff0000">*</font></th>
+ 
+            <td colspan="3">
+              <select id="fichasidtipodocumento" name="{idtipodocumento_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idtipodocumento_Options}
+              </select>
+ </td> 
+            <th>Tipo Contribuyente <font color="#ff0000">*</font></th>
+ 
+            <td colspan="3">
+              <select id="fichastipocont" name="{tipocont_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {tipocont_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Nro. documento <font color="#ff0000">*</font></th>
+ 
+            <td colspan="3"><input id="fichasnrodocumento" maxlength="20" value="{nrodocumento}" name="{nrodocumento_Name}" size="20"></td> 
+            <th>CUIT</th>
+ 
+            <td colspan="3"><input id="fichascuit" maxlength="20" value="{cuit}" name="{cuit_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Fecha nacimiento</th>
+ 
+            <td colspan="3"><input id="fichasfechanac" maxlength="100" size="10" value="{fechanac}" name="{fechanac_Name}">
+              <!-- BEGIN DatePicker DatePicker_fechanac --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="fichasDatePicker_fechanac"><img alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fechanac --></td> 
+            <th>Nacionalidad</th>
+ 
+            <td colspan="3">
+              <select id="fichasnacionalidad" name="{nacionalidad_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {nacionalidad_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Estado Civil <font color="#ff0000">*</font></th>
+ 
+            <td>
+              <select id="fichasidestadocivil" name="{idestadocivil_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idestadocivil_Options}
+              </select>
+ </td> 
+            <td>Nupcias</td> 
+            <td>
+              <select id="fichasnupcias" name="{nupcias_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {nupcias_Options}
+              </select>
+ &nbsp;</td> 
+            <th>Conyuge</th>
+ 
+            <td colspan="3"><input id="fichasconyuge" maxlength="20" value="{conyuge}" name="{conyuge_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Padre</th>
+ 
+            <td colspan="3"><input id="fichaspadre" maxlength="20" value="{padre}" name="{padre_Name}" size="20"></td> 
+            <th>Madre</th>
+ 
+            <td colspan="3"><input id="fichasmadre" maxlength="20" value="{madre}" name="{madre_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Observaciones</th>
+ 
+            <td colspan="7"><textarea id="fichasobservaciones" name="{observaciones_Name}" rows="3" cols="50">{observaciones}</textarea></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="8">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="fichasButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="fichasButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="fichasButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record fichas -->
+<p>
+<!-- BEGIN Panel Panel1 --><a href="{Link1_Src}" id="Panel1Link1">Ver Propiedades</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- END Panel Panel1 --><br>
+{Footer} </p>
+</body>
+</html>

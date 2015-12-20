@@ -1,0 +1,173 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>renovacion_hipo</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-B8919866
+
+var hipotecas_DatePicker_fechainicio = new Object(); 
+hipotecas_DatePicker_fechainicio.format           = "dd/mm/yyyy";
+hipotecas_DatePicker_fechainicio.style            = "Styles/SandBeach/Style.css";
+hipotecas_DatePicker_fechainicio.relativePathPart = "../";
+hipotecas_DatePicker_fechainicio.themeVersion = "3.0";
+
+var hipotecas_DatePicker_fechafin = new Object(); 
+hipotecas_DatePicker_fechafin.format           = "dd/mm/yyyy";
+hipotecas_DatePicker_fechafin.style            = "Styles/SandBeach/Style.css";
+hipotecas_DatePicker_fechafin.relativePathPart = "../";
+hipotecas_DatePicker_fechafin.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//hipotecasButton_Delete_OnClick @10-270EE66C
+function hipotecasButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End hipotecasButton_Delete_OnClick
+
+//bind_events @1-E6DEA421
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("hipotecasButton_Delete", "click", hipotecasButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>{Header}</p>
+<p>
+<!-- BEGIN Record hipotecas1 -->
+<form id="hipotecas1" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Buscar Operación</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Nro. Operación</th>
+ 
+            <td><input id="hipotecas1s_idhipoteca" maxlength="10" size="10" value="{s_idhipoteca}" name="{s_idhipoteca_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="hipotecas1Button_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record hipotecas1 --><br>
+</p>
+<p>
+<!-- BEGIN Record hipotecas -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Renovación de hipoteca</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th colspan="4">Deudor: {data_deudor}&nbsp;<input id="hipotecasidhipotecaold" type="hidden" value="{idhipotecaold}" name="{idhipotecaold_Name}"></th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th colspan="4">Acreedor: {data_acreedor}</th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th colspan="4">Propiedad: {data_prop}</th>
+          </tr>
+ 
+          <tr class="Controls">
+            <td colspan="4">{data_hipo}</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td>Nro. Hipoteca</td> 
+            <td colspan="3"><input id="hipotecasidhipoteca" value="{idhipoteca}" name="{idhipoteca_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Monto</th>
+ 
+            <td><input id="hipotecasmontohipoteca" maxlength="20" value="{montohipoteca}" name="{montohipoteca_Name}" size="20"></td> 
+            <td>&nbsp;Moneda</td> 
+            <td>
+              <select id="hipotecasListBox1" name="{ListBox1_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {ListBox1_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Fecha inicio</th>
+ 
+            <td><input id="hipotecasfechainicio" maxlength="100" size="10" value="{fechainicio}" name="{fechainicio_Name}">
+              <!-- BEGIN DatePicker DatePicker_fechainicio --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="hipotecasDatePicker_fechainicio"><img alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fechainicio --></td> 
+            <td>Fecha fin&nbsp;</td> 
+            <td><input id="hipotecasfechafin" maxlength="100" size="10" value="{fechafin}" name="{fechafin_Name}">
+              <!-- BEGIN DatePicker DatePicker_fechafin --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="hipotecasDatePicker_fechafin"><img alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a>&nbsp;<!-- END DatePicker DatePicker_fechafin --></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th colspan="4">&nbsp; <input id="hipotecasidestado" type="hidden" value="{idestado}" name="{idestado_Name}"><input id="hipotecasidpropiedad" type="hidden" value="{idpropiedad}" name="{idpropiedad_Name}"></th>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="hipotecasButton_Insert" type="submit" value="Renovar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="hipotecasButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="hipotecasButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record hipotecas --></p>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<html >
+<head>
+<meta ccsServiceable="true" http-equiv="content-type" content="text/html; charset=windows-1252"/>
+
+<title>Salida de caja</title>
+
+<meta ccsServiceable="true" content="CodeCharge Studio 4.2.00.040" name="GENERATOR"/>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-D5407DC8
+
+var movimientoscaja_DatePicker_fecha = new Object(); 
+movimientoscaja_DatePicker_fecha.format           = "dd/mm/yyyy HH:nn:ss";
+movimientoscaja_DatePicker_fecha.style            = "Styles/SandBeach/Style.css";
+movimientoscaja_DatePicker_fecha.relativePathPart = "../";
+movimientoscaja_DatePicker_fecha.themeVersion = "3.0";
+
+var buscafecha_DatePicker_s_fecha = new Object(); 
+buscafecha_DatePicker_s_fecha.format           = "ShortDate";
+buscafecha_DatePicker_s_fecha.style            = "Styles/SandBeach/Style.css";
+buscafecha_DatePicker_s_fecha.relativePathPart = "../";
+buscafecha_DatePicker_s_fecha.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//movimientoscajaButton_Delete_OnClick @6-40E545A3
+function movimientoscajaButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End movimientoscajaButton_Delete_OnClick
+
+//bind_events @1-4BB12433
+function bind_events() {
+    if (functionExists("Headercaja_bind_events")) Headercaja_bind_events();
+    addEventHandler("movimientoscajaButton_Delete", "click", movimientoscajaButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link ccsServiceable="true" href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<p><span ccsId="2" ccsName="Headercaja" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">Headercaja</span></p>
+<p>
+<span contentEditable="true"  style="display:block;border-style:dashed;border-color:#FF3333; border-width:thin" ccsType="Component" ccsId="36" ccsServiceable="true" ccsName="buscafecha" >
+
+<form ccsServiceable="true" id="buscafecha" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td> 
+            <th>Ingrese fecha</th>
+ 
+            <td class="HeaderRight"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td><input ccsServiceable="true" ccsId="38" ccsName="fecha" ccsType="Component" id="buscafechafecha" maxlength="100" size="10" value="{fecha}" name="{fecha_Name}"/>
+              <span ccsId="39" ccsName="DatePicker_s_fecha" ccsType="DatePicker" ccsControlType="DatePicker" ccsControlName="DatePicker_s_fecha" ccsExtendedHtml="true" atomicselection="true"  ccsServiceable="true" ccsExtendedHtmlSpan="true"><a ccsServiceable="true" href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="buscafechaDatePicker_s_fecha"><img ccsServiceable="true" id="buscafechaDatePicker_s_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"/></a>&nbsp;</span></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <input ccsServiceable="true" ccsId="37" ccsName="Button_DoSearch" ccsType="Component" ccsExtendedHtml="true" class="Button" id="buscafechaButton_DoSearch" type="submit" value="Buscar" name="{Button_Name}"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+
+&nbsp;</span></p>
+<p>
+<span contentEditable="true"  style="display:block;border-style:dashed;border-color:#FF3333; border-width:thin" ccsType="Component" ccsId="3" ccsServiceable="true" ccsName="movimientoscaja" >
+
+<form ccsServiceable="true" id="movimientoscaja" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td> 
+            <th>Salida de&nbsp;caja&nbsp;</th>
+ 
+            <td class="HeaderRight"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha y Hora</th>
+ 
+            <td colspan="3"><input ccsServiceable="true" ccsId="13" ccsName="fecha" ccsType="Component" id="movimientoscajafecha" maxlength="100" value="{fecha}" name="{fecha_Name}"/>
+              <span ccsId="14" ccsName="DatePicker_fecha" ccsType="DatePicker" ccsControlType="DatePicker" ccsControlName="DatePicker_fecha" ccsExtendedHtml="true" atomicselection="true"  ccsServiceable="true" ccsExtendedHtmlSpan="true"><a ccsServiceable="true" href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="movimientoscajaDatePicker_fecha"><img ccsServiceable="true" id="movimientoscajaDatePicker_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"/></a>&nbsp;</span></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Moneda</th>
+ 
+            <td colspan="3">
+              <Select ccsType="Component" ccsServiceable="true" ccsId="8"  id="movimientoscajaidmoneda" name="{idmoneda_Name}"ccsName="idmoneda">
+                <option ccsServiceable="true" value="" selected="selected">Seleccionar Valor</option>
+{idmoneda_Options}
+              </Select>
+ <input ccsServiceable="true" ccsId="9" ccsName="tipomovimiento" ccsType="Component" id="movimientoscajatipomovimiento" type="hidden" value="{tipomovimiento}" name="{tipomovimiento_Name}"/></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Código de gasto</th>
+ 
+            <td colspan="3">
+              <Select ccsType="Component" ccsServiceable="true" ccsId="10"  id="movimientoscajaidcodgasto" name="{idcodgasto_Name}"ccsName="idcodgasto">
+                <option ccsServiceable="true" value="" selected="selected">Seleccionar Valor</option>
+{idcodgasto_Options}
+              </Select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Número comprobante</th>
+ 
+            <td colspan="3"><input ccsServiceable="true" ccsId="11" ccsName="numero" ccsType="Component" id="movimientoscajanumero" maxlength="20" value="{numero}" name="{numero_Name}" ccssize="20"/></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Importe</th>
+ 
+            <td colspan="3"><input ccsServiceable="true" ccsId="12" ccsName="importe" ccsType="Component" id="movimientoscajaimporte" maxlength="12" size="12" value="{importe}" name="{importe_Name}"/></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <input ccsServiceable="true" ccsId="4" ccsName="Button_Insert" ccsType="Component" ccsExtendedHtml="true" class="Button" id="movimientoscajaButton_Insert" type="submit" value="Agregar" name="{Button_Name}"/>
+              <input ccsServiceable="true" ccsId="5" ccsName="Button_Update" ccsType="Component" ccsExtendedHtml="true" class="Button" id="movimientoscajaButton_Update" type="submit" value="Enviar" name="{Button_Name}"/>
+              <input ccsServiceable="true" ccsId="6" ccsName="Button_Delete" ccsType="Component" ccsExtendedHtml="true" class="Button" id="movimientoscajaButton_Delete" type="submit" value="Borrar" name="{Button_Name}"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+
+&nbsp;</span><br>
+<span contentEditable="true"  style="display:block;border-style:dashed;border-color:#FF3333; border-width:thin" ccsType="Component" ccsId="20" ccsServiceable="true" ccsName="movimientoscaja1" >
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td> 
+          <th>Movimientos de caja del día <span ccsId="45" ccsName="dia" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">dia</span></th>
+ 
+          <td class="HeaderRight"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Cod. Mov.</th>
+ 
+          <th>Fecha</th>
+ 
+          <th>Compr.</th>
+ 
+          <th>Moneda</th>
+ 
+          <th>Descripción</th>
+ 
+          <th>Credito&nbsp;</th>
+ 
+          <th>Debito</th>
+        </tr>
+ 
+        <tr  ccsType="Block" isBegin="True" name="Row" ccsServiceable="true" ><td atomicselection="true" unselectable="on" colspan="99" style="border-right: black 1px solid;border-top: 2px groove;border-left: 2px groove;border-bottom: black 1px solid;background-color:#DDDDDD" ccsServiceable="true"><span style="width:100%;height:100%;border-style:none;font-size:xx-small;font-family:Arial" unselectable="on" ccsServiceable="true"> Begin Row</span></td></tr>
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right"><span ccsType="Component" ccsId="23" ccsName="idmovimiento" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsServiceable="true" contentEditable="true"><a ccsServiceable="true"  href="{idmovimiento_Src}" id="movimientoscaja1idmovimiento_{movimientoscaja1:rowNumber}"><span style="white-space:nowrap" ccsBlockIsWhiteSpace="true" ccsServiceable="true">{idmovimiento}</span></a></span>&nbsp;</td> 
+          <td><span ccsId="24" ccsName="fecha" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">fecha</span>&nbsp;</td> 
+          <td><span ccsId="25" ccsName="numero" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">numero</span>&nbsp;</td> 
+          <td style="TEXT-ALIGN: right"><span ccsId="26" ccsName="idmoneda" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">idmoneda</span>&nbsp;</td> 
+          <td style="TEXT-ALIGN: right"><span ccsId="34" ccsName="descripcion" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">descripcion</span><input ccsServiceable="true" ccsId="28" ccsName="idcodgasto" ccsType="Component" id="movimientoscaja1idcodgasto_{movimientoscaja1:rowNumber}" type="hidden" value="{idcodgasto}" name="{idcodgasto_Name}"/><input ccsServiceable="true" ccsId="27" ccsName="idcuota" ccsType="Component" id="movimientoscaja1idcuota_{movimientoscaja1:rowNumber}" type="hidden" value="{idcuota}" name="{idcuota_Name}"/>&nbsp;</td> 
+          <td style="TEXT-ALIGN: right"><span ccsId="32" ccsName="importec" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">importec</span>&nbsp;</td> 
+          <td style="TEXT-ALIGN: right"><span ccsId="33" ccsName="imported" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">imported</span><input ccsServiceable="true" ccsId="30" ccsName="importe" ccsType="Component" id="movimientoscaja1importe_{movimientoscaja1:rowNumber}" type="hidden" value="{importe}" name="{importe_Name}"/>&nbsp;<input ccsServiceable="true" ccsId="29" ccsName="tipomovimiento" ccsType="Component" id="movimientoscaja1tipomovimiento_{movimientoscaja1:rowNumber}" type="hidden" value="{tipomovimiento}" name="{tipomovimiento_Name}"/></td>
+        </tr>
+ <tr  ccsType="Block" isBegin="False" name="Row" ccsServiceable="true" ><td atomicselection="true" unselectable="on" colspan="99" style="border-right: black 1px solid;border-top: 2px groove;border-left: 2px groove;border-bottom: black 1px solid;background-color:#DDDDDD" ccsServiceable="true"><span style="width:100%;height:100%;border-style:none;font-size:xx-small;font-family:Arial" unselectable="on" ccsServiceable="true"> End Row</span></td></tr>
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="7">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="7">
+            <span ccsId="31" ccsName="Navigator" ccsType="Navigator" ccsControlType="Navigator" ccsControlName="Navigator" ccsExtendedHtml="true" atomicselection="true"  ccsServiceable="true" ccsExtendedHtmlSpan="true">
+            <span ccsId="" ccsName="First_On" name="First_On" ccsType="Block" ccsServiceable="true" contentEditable="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px"><a ccsServiceable="true" href="{First_URL}">|&lt; </a></span>
+            <span ccsId="" ccsName="First_Off" name="First_Off" ccsType="Block" ccsServiceable="true" contentEditable="true" ccsPreserveEndSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px">|&lt; </span>
+            <span ccsId="" ccsName="Prev_On" name="Prev_On" ccsType="Block" ccsServiceable="true" contentEditable="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px"><a ccsServiceable="true" href="{Prev_URL}">&lt;&lt; </a></span>
+            <span ccsId="" ccsName="Prev_Off" name="Prev_Off" ccsType="Block" ccsServiceable="true" contentEditable="true" ccsPreserveEndSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px">&lt;&lt; </span>&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <span ccsId="" ccsName="Next_On" name="Next_On" ccsType="Block" ccsServiceable="true" contentEditable="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px"><a ccsServiceable="true" href="{Next_URL}">&gt;&gt; </a></span>
+            <span ccsId="" ccsName="Next_Off" name="Next_Off" ccsType="Block" ccsServiceable="true" contentEditable="true" ccsPreserveEndSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px">&gt;&gt; </span>
+            <span ccsId="" ccsName="Last_On" name="Last_On" ccsType="Block" ccsServiceable="true" contentEditable="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px"><a ccsServiceable="true" href="{Last_URL}">&gt;| </a></span>
+            <span ccsId="" ccsName="Last_Off" name="Last_Off" ccsType="Block" ccsServiceable="true" contentEditable="true" ccsPreserveEndSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px">&gt;| </span>&nbsp;</span>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+&nbsp;</span><br>
+</p>
+
+</body>
+</html>

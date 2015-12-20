@@ -1,0 +1,161 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>aperturacaja</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-D3AEA057
+
+var cajaresumen1_DatePicker_s_fecha = new Object(); 
+cajaresumen1_DatePicker_s_fecha.format           = "ShortDate";
+cajaresumen1_DatePicker_s_fecha.style            = "Styles/SandBeach/Style.css";
+cajaresumen1_DatePicker_s_fecha.relativePathPart = "../";
+cajaresumen1_DatePicker_s_fecha.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//cajaresumen1s_fecha_OnLoad @25-E0A0AF95
+function cajaresumen1s_fecha_OnLoad()
+{
+    var result = true;
+//End cajaresumen1s_fecha_OnLoad
+
+//Set Focus @39-E74C4F94
+    if (document.forms["cajaresumen1"] && document.forms["cajaresumen1"].s_fecha) document.forms["cajaresumen1"].s_fecha.focus();
+//End Set Focus
+
+//Close cajaresumen1s_fecha_OnLoad @25-BC33A33A
+    return result;
+}
+//End Close cajaresumen1s_fecha_OnLoad
+
+//cajaresumenButton_Delete_OnClick @6-F748570B
+function cajaresumenButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End cajaresumenButton_Delete_OnClick
+
+//bind_events @1-F8D2B60A
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("cajaresumen1s_fecha", "load", cajaresumen1s_fecha_OnLoad);
+    addEventHandler("cajaresumenButton_Delete", "click", cajaresumenButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>{Headercaja}</p>
+<p>
+<!-- BEGIN Record cajaresumen1 -->
+<form id="cajaresumen1" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Ingrese fecha</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td><input id="cajaresumen1s_fecha" maxlength="100" size="10" value="{s_fecha}" name="{s_fecha_Name}">
+              <!-- BEGIN DatePicker DatePicker_s_fecha --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="cajaresumen1DatePicker_s_fecha"><img id="cajaresumen1DatePicker_s_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_s_fecha --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="cajaresumen1Button_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record cajaresumen1 --><br>
+</p>
+<p>
+<!-- BEGIN Record cajaresumen -->
+<form id="cajaresumen" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Apertura de caja&nbsp;</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td><input id="cajaresumenfecha" readonly maxlength="100" size="10" value="{fecha}" name="{fecha_Name}">&nbsp; </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Saldo inicial $</th>
+ 
+            <td><input id="cajaresumensaldoinicial" maxlength="12" size="12" value="{saldoinicial}" name="{saldoinicial_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Saldo&nbsp;inicial U$S&nbsp;</th>
+ 
+            <td><input id="cajaresumensaldoinicialdolar" style="WIDTH: 98px; HEIGHT: 22px" size="13" value="{saldoinicialdolar}" name="{saldoinicialdolar_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="cajaresumenButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="cajaresumenButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="cajaresumenButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record cajaresumen --><br>
+&nbsp; </p>
+</body>
+</html>

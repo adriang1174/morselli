@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>liquidacion</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<p>
+<!-- BEGIN Record Grid2 -->
+<form id="Grid2" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Buscar</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>&nbsp;Nro. contrato</th>
+ 
+            <td><input id="Grid2idalquiler" value="{idalquiler}" name="{idalquiler_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="Grid2Button_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record Grid2 --><br>
+</p>
+<!-- BEGIN Grid Grid1 -->
+<form id="liq" name="liq" action="liquida_cuotas.php" method="post">
+  <table cellspacing="0" cellpadding="0" width="500" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Cuotas&nbsp;pendientes de pago de&nbsp;{nombrefichacontrato}<input id="Grid1idalquiler" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"><input id="Grid1idficha" type="hidden" value="{idficha}" name="{idficha_Name}"></th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>
+            <!-- BEGIN Sorter Sorter_mes --><a href="{Sort_URL}" id="Grid1Sorter_mes">Mes</a> 
+            <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_mes --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_ano --><a href="{Sort_URL}" id="Grid1Sorter_ano">Año</a> 
+            <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_ano --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_fechavencimiento --><a href="{Sort_URL}" id="Grid1Sorter_fechavencimiento">Fecha vencimiento</a> 
+            <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_fechavencimiento --></th>
+ 
+            <th>&nbsp; 
+            <!-- BEGIN Sorter Sorter_descripcion --><a href="{Sort_URL}" id="Grid1Sorter_descripcion">Tipo de cuota</a> 
+            <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_descripcion --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_importe --><a href="{Sort_URL}" id="Grid1Sorter_importe">Importe</a> 
+            <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_importe --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_fechaaviso --><a href="{Sort_URL}" id="Grid1Sorter_fechaaviso">Fecha aviso</a> 
+            <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_fechaaviso --></th>
+ 
+            <th>&nbsp;</th>
+ 
+            <th>&nbsp;Liquidar</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td style="TEXT-ALIGN: right">{mes}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">{ano}&nbsp;</td> 
+            <td>{fechavencimiento}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">&nbsp;{tipocuota}</td> 
+            <td style="TEXT-ALIGN: right">{importe}&nbsp;</td> 
+            <td>{fechaaviso}&nbsp;</td> 
+            <td>&nbsp;<a href="{Link1_Src}" id="Grid1Link1_{Grid1:rowNumber}">Modificar cuota</a></td> 
+            <td><input id="Grid1liquida" type="checkbox" value="1" name="{liquida_Name}[{ano}][{mes}]" {liquida}>&nbsp;<input id="Grid1idcuota" type="hidden" value="{idcuota}" name="{idcuota_Name}"></td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="8">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+        </table>
+<a href="{Link2_Src}" id="Grid1Link2_{Grid1:rowNumber}">Agregar cuota</a></td>
+    </tr>
+  </table>
+  <br>
+  <!-- BEGIN Button Button1 --><input class="Button" id="Grid1Button1" type="submit" value="Liquidar" name="{Button_Name}"><!-- END Button Button1 -->
+</form>
+<!-- END Grid Grid1 -->
+</body>
+</html>

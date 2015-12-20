@@ -1,0 +1,217 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>impuestos</title>
+<meta content="CodeCharge Studio 4.1.00.032" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//impuestos_impuestosanoconCancel_OnClick @44-95185B46
+function impuestos_impuestosanoconCancel_OnClick()
+{
+    disableValidation = true;
+}
+//End impuestos_impuestosanoconCancel_OnClick
+
+//bind_events @1-5A8A950C
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("impuestos_impuestosanoconCancel", "click", impuestos_impuestosanoconCancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<p>
+<!-- BEGIN Record NewRecord1 -->
+<form id="NewRecord1" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Seleccionar el Año</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Años disponibles para este alquiler</th>
+ 
+            <td>
+              <select id="NewRecord1ano" name="{ano_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {ano_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="NewRecord1Button_DoSearch" type="submit" value="Seleccionar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record NewRecord1 --></p>
+<!-- BEGIN EditableGrid impuestos_impuestosanocon -->
+<form id="impuestos_impuestosanocon" name="{HTMLFormName}" action="{Action}" method="post">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Impuestos año {Label3}&nbsp;para el contrato&nbsp; Nro: {Label1}&nbsp;de la propiedad de {Label2}&nbsp;</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="25">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Caption">
+            <th>Impuesto</th>
+ 
+            <th>Ene</th>
+ 
+            <th>Presento</th>
+ 
+            <th>Feb</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Mar</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Abr</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>May</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Jun</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Jul</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Ago</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Sept</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Oct</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Nov</th>
+ 
+            <th>Pres.</th>
+ 
+            <th>Dic</th>
+ 
+            <th>Pres.</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="25">{Error}</td>
+          </tr>
+          <!-- END RowError -->
+          <tr class="Row">
+            <td>{nombreimpuesto}&nbsp;<input id="impuestos_impuestosanoconidalquiler_{impuestos_impuestosanocon:rowNumber}" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"><input id="impuestos_impuestosanoconidcuota" type="hidden" value="{idcuota}" name="{idcuota_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconene_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{ene_Name}" {ene}></td> 
+            <td><input id="impuestos_impuestosanoconpresene_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presene}" name="{presene_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconfeb_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{feb_Name}" {feb}></td> 
+            <td><input id="impuestos_impuestosanoconpresfeb_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presfeb}" name="{presfeb_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconmar_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{mar_Name}" {mar}></td> 
+            <td><input id="impuestos_impuestosanoconpresmar_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presmar}" name="{presmar_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconabr_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{abr_Name}" {abr}></td> 
+            <td><input id="impuestos_impuestosanoconpresabr_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presabr}" name="{presabr_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconmay_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{may_Name}" {may}></td> 
+            <td><input id="impuestos_impuestosanoconpresmay_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presmay}" name="{presmay_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconjun_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{jun_Name}" {jun}></td> 
+            <td><input id="impuestos_impuestosanoconpresjun_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presjun}" name="{presjun_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconjul_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{jul_Name}" {jul}></td> 
+            <td><input id="impuestos_impuestosanoconpresjul" maxlength="15" size="4" value="{presjul}" name="{presjul_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconago_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{ago_Name}" {ago}></td> 
+            <td><input id="impuestos_impuestosanoconpresago_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presago}" name="{presago_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconsept_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{sept_Name}" {sept}></td> 
+            <td><input id="impuestos_impuestosanoconpresset_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presset}" name="{presset_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconoct_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{oct_Name}" {oct}></td> 
+            <td><input id="impuestos_impuestosanoconpresoct_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presoct}" name="{presoct_Name}"></td> 
+            <td><input id="impuestos_impuestosanoconnov_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{nov_Name}" {nov}></td> 
+            <td><input id="impuestos_impuestosanoconpresnov_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presnov}" name="{presnov_Name}"></td> 
+            <td><input id="impuestos_impuestosanocondic_{impuestos_impuestosanocon:rowNumber}" type="checkbox" value="1" name="{dic_Name}" {dic}></td> 
+            <td><input id="impuestos_impuestosanoconpresdic_{impuestos_impuestosanocon:rowNumber}" maxlength="15" size="4" value="{presdic}" name="{presdic_Name}"></td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="25">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="25">
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                <option value="" selected>-</option>
+ {PageSize_Options}
+              </select>
+ 
+              <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+              <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+              <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+              <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+              <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->
+              <!-- BEGIN Button Button_Submit --><input class="Button" id="impuestos_impuestosanoconButton_Submit" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Submit -->
+              <!-- BEGIN Button Cancel --><input class="Button" id="impuestos_impuestosanoconCancel" type="submit" value="Cancelar" name="{Button_Name}"><!-- END Button Cancel --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END EditableGrid impuestos_impuestosanocon --><br>
+</body>
+</html>

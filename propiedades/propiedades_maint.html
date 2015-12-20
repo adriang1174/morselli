@@ -1,0 +1,332 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Propiedades</title>
+<meta content="CodeCharge Studio 3.2.0.2" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//propiedadesButton_Delete_OnClick @5-E43AF0B1
+function propiedadesButton_Delete_OnClick()
+{
+    var result = true;
+//End propiedadesButton_Delete_OnClick
+
+//Confirmation Message @22-9EAD2E95
+    return confirm('Se dispone a Eliminar la Propiedad, confirme si esta seguro. Esta Operción no puede deshacerse.');
+//End Confirmation Message
+
+//Close propiedadesButton_Delete_OnClick @5-BC33A33A
+    return result;
+}
+//End Close propiedadesButton_Delete_OnClick
+
+//fichaspropiedadesnombre_OnChange @35-F16F2E9A
+function fichaspropiedadesnombre_OnChange()
+{
+    var result = true;
+//End fichaspropiedadesnombre_OnChange
+
+//Custom Code @66-2A29BDB7
+            getFichaData(this.name,this.id);
+//End Custom Code
+
+
+//Close fichaspropiedadesnombre_OnChange @35-BC33A33A
+    return result;
+}
+//End Close fichaspropiedadesnombre_OnChange
+
+//fichaspropiedadesnrodocumento_OnChange @36-C2DA1015
+function fichaspropiedadesnrodocumento_OnChange()
+{
+    var result = true;
+//End fichaspropiedadesnrodocumento_OnChange
+
+//Custom Code @67-2A29BDB7
+            getFichaData(this.name,this.id);
+//End Custom Code
+
+//Close fichaspropiedadesnrodocumento_OnChange @36-BC33A33A
+    return result;
+}
+//End Close fichaspropiedadesnrodocumento_OnChange
+
+//fichaspropiedadesidficha_OnChange @69-3958C269
+function fichaspropiedadesidficha_OnChange()
+{
+    var result = true;
+//End fichaspropiedadesidficha_OnChange
+
+//Custom Code @70-2A29BDB7
+
+           var Element_Number = this.id;
+            getFichaData(this.name,Element_Number);
+//End Custom Code
+
+//Close fichaspropiedadesidficha_OnChange @69-BC33A33A
+    return result;
+}
+//End Close fichaspropiedadesidficha_OnChange
+
+//DEL              getFichaData(this.name,this.id);
+
+//bind_events @1-485328A0
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("propiedadesButton_Delete", "click", propiedadesButton_Delete_OnClick);
+    addEventHandler("fichaspropiedadesnombre", "change", fichaspropiedadesnombre_OnChange);
+    addEventHandler("fichaspropiedadesnrodocumento", "change", fichaspropiedadesnrodocumento_OnChange);
+    addEventHandler("fichaspropiedadesidficha", "change", fichaspropiedadesidficha_OnChange);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+
+
+
+//End CCS script
+</script>
+<script src="../ajax.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//Begin ajax material lookup
+                var ajax = new Array();
+                var indexThis = 0;
+                 ajax[indexThis] = new sack();
+        var currentCodBarras=false;
+                
+        function getFichaData(nameVar,idVar)
+        {
+                        var cod_barras = document.getElementById(idVar).value;
+                        var str = nameVar;
+                        var it = str.substr(str.indexOf("_")+1,str.length-str.indexOf("_"));
+                        //alert(nameVar);
+                                                var str2 = nameVar;
+                                                var str3 = str2.substr(0,str2.indexOf("_"));
+
+                                //ajax[indexThis].requestFile = 'getFicha.php?cod='+cod_barras+'&i='+it;   // Specifying which file to get
+                                                                ajax[indexThis].requestFile = 'getFicha.php?'+str3+'='+cod_barras+'&i='+it;   // Specifying which file to get
+                        ajax[indexThis].onCompletion = function(){ showFichaData(it); } ;
+                         ajax[indexThis].runAJAX();         // Execute AJAX function                        
+                 
+        }
+        
+        function showFichaData(it)
+        {
+                var formObj = document.forms['fichaspropiedades'];     
+                                eval(ajax[indexThis].response);
+                                if (formObj.errorAjax.value=="true")
+                                {
+                                        alert('Ficha no encontrada');
+                                        eval("formObj.idficha_"+it+".focus()")
+                                }
+                                else
+                                {
+                                        eval("formObj.duenoporcentaje_"+it+".focus()")
+                                }
+        }
+ </script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Record propiedades -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Agregar/Editar Propiedades </th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Dirección</th>
+ 
+            <td><input id="propiedadesdireccion" maxlength="50" size="50" value="{direccion}" name="{direccion_Name}"></td> 
+            <td>Teléfono</td> 
+            <td><input id="propiedadestelefono" maxlength="20" value="{telefono}" name="{telefono_Name}" size="20">&nbsp;</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Tipo de propiedad&nbsp;</th>
+ 
+            <td>
+              <select id="propiedadesidtipopropiedad" name="{idtipopropiedad_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idtipopropiedad_Options}
+              </select>
+ &nbsp;</td> 
+            <td>Cantidad de Ocupantes</td> 
+            <td><input id="propiedadescantocup" maxlength="20" value="{cantocup}" name="{cantocup_Name}" size="20">&nbsp;&nbsp;</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Localidad</th>
+ 
+            <td><input id="propiedadeslocalidad" maxlength="50" size="50" value="{localidad}" name="{localidad_Name}"></td> 
+            <td>Código Postal&nbsp;</td> 
+            <td><input id="propiedadescodigopostal" maxlength="20" value="{codigopostal}" name="{codigopostal_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Estado</th>
+ 
+            <td>
+              <select id="propiedadesestado" name="{estado_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {estado_Options}
+              </select>
+ </td> 
+            <td>Administración</td> 
+            <td><input id="propiedadesadminist" maxlength="20" value="{administ}" name="{administ_Name}" size="20">&nbsp;<input id="propiedadesidficha" type="hidden" value="{idficha}" name="{idficha_Name}"><input id="propiedadesidpropiedad" type="hidden" value="{idpropiedad}" name="{idpropiedad_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="propiedadesButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="propiedadesButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="propiedadesButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record propiedades -->
+<p>
+<!-- BEGIN EditableGrid fichaspropiedades -->
+<form id="fichaspropiedades" name="{HTMLFormName}" action="{Action}" method="post">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} <input id="fichaspropiedadeserrorAjax" type="hidden" value="{errorAjax}" name="{errorAjax_Name}"><input id="fichaspropiedadesidpropiedad" type="hidden" value="{idpropiedad}" name="{idpropiedad_Name}">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Porcentajes de Propietarios</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Caption">
+            <th>Ficha - Nombre - Numero de Documento</th>
+ 
+            <th>Porcentaje</th>
+ 
+            <th>Borrar</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END RowError -->
+          <tr class="Row">
+            <td><input id="fichaspropiedadesidficha_{fichaspropiedades:rowNumber}" style="WIDTH: 67px; HEIGHT: 22px" size="9" value="{idficha}" name="{idficha_Name}">&nbsp;- <input id="fichaspropiedadesnombre_{fichaspropiedades:rowNumber}" style="WIDTH: 223px; HEIGHT: 22px" size="29" value="{nombre}" name="{nombre_Name}">&nbsp;- <input id="fichaspropiedadesnrodocumento_{fichaspropiedades:rowNumber}" value="{nrodocumento}" name="{nrodocumento_Name}"></td> 
+            <td><input id="fichaspropiedadesduenoporcentaje_{fichaspropiedades:rowNumber}" maxlength="12" size="12" value="{duenoporcentaje}" name="{duenoporcentaje_Name}">% &nbsp;</td> 
+            <td>
+              <!-- BEGIN CheckBox CheckBox_Delete --><input id="fichaspropiedadesCheckBox_Delete_{fichaspropiedades:rowNumber}" type="checkbox" value="1" name="{CheckBox_Delete_Name}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete -->&nbsp;</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="3">
+              <!-- BEGIN Button Button_Submit --><input class="Button" id="fichaspropiedadesButton_Submit" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Submit --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+&nbsp;<!-- END EditableGrid fichaspropiedades --></p>
+<p>
+<!-- BEGIN Grid contratos -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Alquiler</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Carpeta</th>
+ 
+          <th>Moneda</th>
+ 
+          <th>Fecha inicio</th>
+ 
+          <th>Fecha fin</th>
+ 
+          <th>Porcentajehonorarios</th>
+ 
+          <th>Vto</th>
+ 
+          <th>Acuerdo</th>
+ 
+          <th></th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right"><a href="{idalquiler_Src}" id="contratosidalquiler_{contratos:rowNumber}">{idalquiler}</a>&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{moneda}&nbsp;</td> 
+          <td>{fechainicio}&nbsp;</td> 
+          <td>{fechafin}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{porcentajehonorarios}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{vto}&nbsp;</td> 
+          <td>{acuerdo}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right"><input id="contratosidpropiedad_{contratos:rowNumber}" type="hidden" value="{idpropiedad}" name="{idpropiedad_Name}">&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="8">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid contratos --><br>
+</p>
+<p><a href="{Link1_Src}" id="Link1">Cargar Nuevo Contrato Alquiler</a>&nbsp; <a href="{Link2_Src}" id="Link2">Cargar Hipoteca a la propiedad</a> </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

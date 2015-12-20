@@ -1,0 +1,473 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>contrato</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-44CA0F78
+
+var alquileres_DatePicker_fechainicio1 = new Object(); 
+alquileres_DatePicker_fechainicio1.format           = "dd/mm/yyyy";
+alquileres_DatePicker_fechainicio1.style            = "Styles/SandBeach/Style.css";
+alquileres_DatePicker_fechainicio1.relativePathPart = "../";
+alquileres_DatePicker_fechainicio1.themeVersion = "3.0";
+
+var alquileres_DatePicker_fechafin1 = new Object(); 
+alquileres_DatePicker_fechafin1.format           = "dd/mm/yyyy";
+alquileres_DatePicker_fechafin1.style            = "Styles/SandBeach/Style.css";
+alquileres_DatePicker_fechafin1.relativePathPart = "../";
+alquileres_DatePicker_fechafin1.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//fichasalquileresidficha_OnChange @114-ADDC3B6D
+function fichasalquileresidficha_OnChange()
+{
+    var result = true;
+//End fichasalquileresidficha_OnChange
+
+//Custom Code @139-2A29BDB7
+    // -------------------------
+           var Element_Number = this.id;
+            getFichaData(this.name,Element_Number);
+    // -------------------------
+//End Custom Code
+
+//Close fichasalquileresidficha_OnChange @114-BC33A33A
+    return result;
+}
+//End Close fichasalquileresidficha_OnChange
+
+//fichasalquileresnombre_OnChange @136-11ADAE13
+function fichasalquileresnombre_OnChange()
+{
+    var result = true;
+//End fichasalquileresnombre_OnChange
+
+//Custom Code @141-2A29BDB7
+    // -------------------------
+    getFichaData(this.name,this.id);
+    // -------------------------
+//End Custom Code
+
+//Close fichasalquileresnombre_OnChange @136-BC33A33A
+    return result;
+}
+//End Close fichasalquileresnombre_OnChange
+
+//fichasalquileresnrodocumento_OnChange @137-3F2513BA
+function fichasalquileresnrodocumento_OnChange()
+{
+    var result = true;
+//End fichasalquileresnrodocumento_OnChange
+
+//Custom Code @142-2A29BDB7
+    // -------------------------
+ getFichaData(this.name,this.id);
+    // -------------------------
+//End Custom Code
+
+//Close fichasalquileresnrodocumento_OnChange @137-BC33A33A
+    return result;
+}
+//End Close fichasalquileresnrodocumento_OnChange
+
+//DEL      // -------------------------
+//DEL             var Element_Number = this.id;
+//DEL              getFichaData(this.name,Element_Number);
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL      getFichaData(this.name,this.id);
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL   getFichaData(this.name,this.id);
+//DEL      // -------------------------
+
+//alquileresButton_Delete_OnClick @6-38327323
+function alquileresButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End alquileresButton_Delete_OnClick
+
+//bind_events @1-157C3F90
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("fichasalquileresidficha", "change", fichasalquileresidficha_OnChange);
+    addEventHandler("fichasalquileresnombre", "change", fichasalquileresnombre_OnChange);
+    addEventHandler("fichasalquileresnrodocumento", "change", fichasalquileresnrodocumento_OnChange);
+    addEventHandler("alquileresButton_Delete", "click", alquileresButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+
+//End CCS script
+</script>
+<script src="../ajax.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//Begin ajax material lookup
+                var ajax = new Array();
+                var indexThis = 0;
+                 ajax[indexThis] = new sack();
+        var currentCodBarras=false;
+                
+        function getFichaData(nameVar,idVar)
+        {
+                        var cod_barras = document.getElementById(idVar).value;
+                        var str = nameVar;
+                        var it = str.substr(str.indexOf("_")+1,str.length-str.indexOf("_"));
+                        //alert(nameVar);
+                                                var str2 = nameVar;
+                                                var str3 = str2.substr(0,str2.indexOf("_"));
+
+                                //ajax[indexThis].requestFile = 'getFicha.php?cod='+cod_barras+'&i='+it;   // Specifying which file to get
+                                                                ajax[indexThis].requestFile = 'getFicha.php?'+str3+'='+cod_barras+'&i='+it;   // Specifying which file to get
+                        ajax[indexThis].onCompletion = function(){ showFichaData(it); } ;
+                         ajax[indexThis].runAJAX();         // Execute AJAX function                        
+                 
+        }
+        
+        function showFichaData(it)
+        {
+                var formObj = document.forms['fichasalquileres'];     
+                                eval(ajax[indexThis].response);
+                                if (formObj.errorAjax.value=="true")
+                                {
+                                        alert('Ficha no encontrada');
+                                        eval("formObj.idficha_"+it+".focus()")
+                                }
+                                else
+                                {
+                                        eval("formObj.porcentajealq_"+it+".focus()")
+                                }
+        }
+ </script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Record alquileres -->
+<form id="alquileres" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Datos del contrato</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td width="500" colspan="6">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th colspan="6">&nbsp;{data_prop}</th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Nro. Carpeta</th>
+ 
+            <td colspan="5"><input id="alquileresidalquiler" value="{idalquiler}" name="{idalquiler_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Fecha inicio</th>
+ 
+            <td><input id="alquileresfechainicio" maxlength="20" value="{fechainicio}" name="{fechainicio_Name}" size="20">
+              <!-- BEGIN DatePicker DatePicker_fechainicio1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="alquileresDatePicker_fechainicio1"><img id="alquileresDatePicker_fechainicio1_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fechainicio1 --></td> 
+            <th>Fecha finalización</th>
+ 
+            <th colspan="3"><input id="alquileresfechafin" maxlength="20" value="{fechafin}" name="{fechafin_Name}" size="20">
+            <!-- BEGIN DatePicker DatePicker_fechafin1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="alquileresDatePicker_fechafin1"><img id="alquileresDatePicker_fechafin1_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a>&nbsp;<!-- END DatePicker DatePicker_fechafin1 --></th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Honorarios (%)</th>
+ 
+            <td><input id="alquileresporcentajehonorarios" maxlength="20" value="{porcentajehonorarios}" name="{porcentajehonorarios_Name}" size="20"></td> 
+            <th>&nbsp;Vencimiento cuotas</th>
+ 
+            <th colspan="3">
+            <select id="alquileresvto" name="{vto_Name}">
+              <option value="" selected>Seleccionar Valor</option>
+              {vto_Options}
+            </select>
+ </th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Acuerdo</th>
+ 
+            <td><input id="alquileresacuerdo" style="WIDTH: 144px; HEIGHT: 22px" maxlength="20" value="{acuerdo}" name="{acuerdo_Name}" size="20"></td> 
+            <td>&nbsp;Moneda</td> 
+            <td colspan="3">
+              <select id="alquileresidmoneda" name="{idmoneda_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idmoneda_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="6">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="alquileresButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="alquileresButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="alquileresButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --><input id="alquileresidpropiedad" type="hidden" value="{idpropiedad}" name="{idpropiedad_Name}"><input id="alquileresidestado" type="hidden" value="{idestado}" name="{idestado_Name}"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record alquileres -->
+<!-- BEGIN EditableGrid anocontratoalquiler -->
+<form id="anocontratoalquiler" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <input type="hidden" value="{FormState}" name="FormState">{FormScript} <input id="anocontratoalquileridalquiler_{anocontratoalquiler:rowNumber}" type="hidden" value="{idalquiler}" name="{idalquiler_Name}">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Montos del contrato</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Caption">
+            <th>Año</th>
+ 
+            <th>Cant. Meses</th>
+ 
+            <th>Monto</th>
+ 
+            <th>Borrar</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END RowError -->
+          <tr class="Row">
+            <td><input id="anocontratoalquilerano_{anocontratoalquiler:rowNumber}" maxlength="10" size="10" value="{ano}" name="{ano_Name}"></td> 
+            <td><input id="anocontratoalquilermeses_{anocontratoalquiler:rowNumber}" maxlength="10" size="10" value="{meses}" name="{meses_Name}"></td> 
+            <td><input id="anocontratoalquilermonto_{anocontratoalquiler:rowNumber}" maxlength="12" size="12" value="{monto}" name="{monto_Name}"></td> 
+            <td>
+              <!-- BEGIN CheckBox CheckBox_Delete --><input id="anocontratoalquilerCheckBox_Delete_{anocontratoalquiler:rowNumber}" type="checkbox" value="1" name="{CheckBox_Delete_Name}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete -->&nbsp;</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="4">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="4">
+              <!-- BEGIN Button Button_Submit --><input class="Button" id="anocontratoalquilerButton_Submit" type="submit" value="Guardar Montos del contrato" name="{Button_Name}"><!-- END Button Button_Submit --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END EditableGrid anocontratoalquiler -->
+<!-- BEGIN Grid anocontratoalquilerRO -->
+<table cellspacing="0" cellpadding="0" width="600" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Montos del contrato&nbsp;</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Ano</th>
+ 
+          <th>Meses</th>
+ 
+          <th>Monto</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right">{ano}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{meses}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{monto}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="3">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid anocontratoalquilerRO -->
+<!-- BEGIN EditableGrid fichasalquileres -->
+<form id="fichasalquileres" name="{HTMLFormName}" action="{Action}" method="post">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} <input id="fichasalquilereserrorAjax" type="hidden" value="{errorAjax}" name="{errorAjax_Name}">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Inquilinos</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Caption">
+            <th>Ficha - Nombre - Numero de Documento</th>
+ 
+            <th>Porcentaje</th>
+ 
+            <th>Borrar</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END RowError -->
+          <tr class="Row">
+            <td><input id="fichasalquileresidficha_{fichasalquileres:rowNumber}" maxlength="10" size="10" value="{idficha}" name="{idficha_Name}">&nbsp;- <input id="fichasalquileresnombre" value="{nombre}" name="{nombre_Name}">&nbsp;- <input id="fichasalquileresnrodocumento" value="{nrodocumento}" name="{nrodocumento_Name}"></td> 
+            <td><input id="fichasalquileresporcentajealq_{fichasalquileres:rowNumber}" maxlength="12" size="12" value="{porcentajealq}" name="{porcentajealq_Name}">%</td> 
+            <td>
+              <!-- BEGIN CheckBox CheckBox_Delete --><input id="fichasalquileresCheckBox_Delete_{fichasalquileres:rowNumber}" type="checkbox" value="1" name="{CheckBox_Delete_Name}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete -->&nbsp;</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="3">
+              <!-- BEGIN Button Button_Submit --><input class="Button" id="fichasalquileresButton_Submit" type="submit" value="Guardar inquilinos" name="{Button_Name}"><!-- END Button Button_Submit --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END EditableGrid fichasalquileres -->
+<!-- BEGIN Grid fichasalquileresRO -->
+<table cellspacing="0" cellpadding="0" width="600" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Inquilinos&nbsp;</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Ficha - Nombre - Numero de Documento</th>
+ 
+          <th>Porcentaje</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right">{idficha}&nbsp;-&nbsp;{nombre}&nbsp;-&nbsp;{nrodocumento} </td> 
+          <td style="TEXT-ALIGN: right">{porcentajealq}&nbsp;%</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="2">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid fichasalquileresRO -->
+<!-- BEGIN Record generacuotas -->
+<form id="generacuotas" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top" align="right">&nbsp; 
+        <!-- <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>generacuotas</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+        -->
+        <!-- <table class="Record" cellspacing="0" cellpadding="0"> -->
+        <table cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td>{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Bottom">
+            <th align="right">{exito}&nbsp;</th>
+          </tr>
+ 
+          <tr class="Bottom">
+            <th align="right">
+            <!-- BEGIN Button Button_Insert --><input class="Button" id="generacuotasButton_Insert" type="submit" value="Guardar contrato y Generar Cuotas" name="{Button_Name}"><!-- END Button Button_Insert -->
+            <!-- BEGIN Button Button_Update --><input class="Button" id="generacuotasButton_Update" type="submit" value="Guardar contrato y Generar Cuotas" name="{Button_Name}"><!-- END Button Button_Update --></th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record generacuotas --><br>
+<br>
+<p></p>
+</body>
+</html>

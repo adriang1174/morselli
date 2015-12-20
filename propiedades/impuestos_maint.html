@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="GENERATOR" content="CodeCharge Studio 4.00.00.04">
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Impuestos</title>
+<link rel="stylesheet" type="text/css" href="../Styles/SandBeach/Style_doctype.css">
+</head>
+<body>
+<!-- BEGIN Record impuestos -->
+<form id="impuestos" method="post" action="{Action}" name="{HTMLFormName}">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table cellspacing="0" cellpadding="0" border="0" class="Header">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif" alt=""></td> 
+            <td class="th"><strong>Agregar/Editar Impuestos </strong></td> 
+            <td class="HeaderRight"><img border="0" src="../Styles/SandBeach/Images/Spacer.gif" alt=""></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="impuestosnombreimpuesto">Nombreimpuesto</label></td> 
+            <td><input type="text" name="{nombreimpuesto_Name}" value="{nombreimpuesto}" maxlength="20" size="20" id="impuestosnombreimpuesto"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="impuestosmesesvencimiento">Mesesvencimiento</label></td> 
+            <td><input type="text" name="{mesesvencimiento_Name}" value="{mesesvencimiento}" maxlength="20" size="20" id="impuestosmesesvencimiento"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="right">
+              <!-- BEGIN Button Button_Insert --><input name="{Button_Name}" type="submit" value="Agregar" alt="Agregar" id="impuestosButton_Insert" class="Button"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input name="{Button_Name}" type="submit" value="Enviar" alt="Enviar" id="impuestosButton_Update" class="Button"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input name="{Button_Name}" type="submit" value="Borrar" alt="Borrar" id="impuestosButton_Delete" class="Button"><!-- END Button Button_Delete --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record impuestos --><br>
+</body>
+</html>

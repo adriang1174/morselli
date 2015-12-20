@@ -1,0 +1,101 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Gastosescribania</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//gastosescribaniaButton_Delete_OnClick @5-FBD6B642
+function gastosescribaniaButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End gastosescribaniaButton_Delete_OnClick
+
+//bind_events @1-D942A0A1
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    addEventHandler("gastosescribaniaButton_Delete", "click", gastosescribaniaButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Record gastosescribania -->
+<form id="gastosescribania" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Agregar/Editar Gastos de escribania </th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Jurisdiccion</th>
+ 
+            <td>
+              <select id="gastosescribaniajurisdiccion" name="{jurisdiccion_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+ {jurisdiccion_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Descripcion</th>
+ 
+            <td><input id="gastosescribaniadescripcion" maxlength="50" size="50" value="{descripcion}" name="{descripcion_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Importe comprador</th>
+ 
+            <td><input id="gastosescribaniaimportecomp" maxlength="12" size="12" value="{importecomp}" name="{importecomp_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Importe vendedor</th>
+ 
+            <td><input id="gastosescribaniaimportevend" maxlength="12" size="12" value="{importevend}" name="{importevend_Name}"></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="gastosescribaniaButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="gastosescribaniaButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="gastosescribaniaButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record gastosescribania --><br>
+</body>
+</html>

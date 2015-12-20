@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Gastosescribania</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{Header}<br>
+<!-- BEGIN Grid gastosescribania -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Listado de Gastos de escribania</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_descripcion --><a href="{Sort_URL}" id="gastosescribaniaSorter_descripcion">Descripcion</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_descripcion --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_importecomp --><a href="{Sort_URL}" id="gastosescribaniaSorter_importecomp">Importe comp</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_importecomp --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_importevend --><a href="{Sort_URL}" id="gastosescribaniaSorter_importevend">Importe vend</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_importevend --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_jurisdiccion --><a href="{Sort_URL}" id="gastosescribaniaSorter_jurisdiccion">Jurisdiccion</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_jurisdiccion --></th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td><a href="{descripcion_Src}" id="gastosescribaniadescripcion_{gastosescribania:rowNumber}">{descripcion}</a>&nbsp;<input id="gastosescribaniaidgastoescribania_{gastosescribania:rowNumber}" type="hidden" value="{idgastoescribania}" name="{idgastoescribania_Name}"></td> 
+          <td style="TEXT-ALIGN: right">{importecomp}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{importevend}&nbsp;</td> 
+          <td>{jurisdiccion}&nbsp;</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="4">No hay registros</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="4"><a href="{gastosescribania_Insert_Src}" id="gastosescribaniagastosescribania_Insert">Agregar Nuevo</a>&nbsp; 
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On --><!-- END Navigator Navigator -->&nbsp;</td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid gastosescribania --><br>
+</body>
+</html>

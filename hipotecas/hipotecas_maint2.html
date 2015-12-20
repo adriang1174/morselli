@@ -1,0 +1,350 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Hipotecas</title>
+<meta content="CodeCharge Studio 3.2.0.2" name="GENERATOR">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-B8919866
+
+var hipotecas_DatePicker_fechainicio = new Object(); 
+hipotecas_DatePicker_fechainicio.format           = "dd/mm/yyyy";
+hipotecas_DatePicker_fechainicio.style            = "Styles/SandBeach/Style.css";
+hipotecas_DatePicker_fechainicio.relativePathPart = "../";
+hipotecas_DatePicker_fechainicio.themeVersion = "3.0";
+
+var hipotecas_DatePicker_fechafin = new Object(); 
+hipotecas_DatePicker_fechafin.format           = "dd/mm/yyyy";
+hipotecas_DatePicker_fechafin.style            = "Styles/SandBeach/Style.css";
+hipotecas_DatePicker_fechafin.relativePathPart = "../";
+hipotecas_DatePicker_fechafin.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//fichashipotecasidficha_OnChange @29-CABF26DE
+function fichashipotecasidficha_OnChange()
+{
+    var result = true;
+//End fichashipotecasidficha_OnChange
+
+//Custom Code @48-2A29BDB7
+    // -------------------------
+        getFichaData(this.name,this.id);
+    // -------------------------
+//End Custom Code
+
+//Close fichashipotecasidficha_OnChange @29-BC33A33A
+    return result;
+}
+//End Close fichashipotecasidficha_OnChange
+
+//fichashipotecasnombre_OnChange @34-AFFAD188
+function fichashipotecasnombre_OnChange()
+{
+    var result = true;
+//End fichashipotecasnombre_OnChange
+
+//Custom Code @49-2A29BDB7
+    // -------------------------
+        getFichaData(this.name,this.id);
+    // -------------------------
+//End Custom Code
+
+//Close fichashipotecasnombre_OnChange @34-BC33A33A
+    return result;
+}
+//End Close fichashipotecasnombre_OnChange
+
+//fichashipotecasnrodocumento_OnChange @35-AA1C6625
+function fichashipotecasnrodocumento_OnChange()
+{
+    var result = true;
+//End fichashipotecasnrodocumento_OnChange
+
+//Custom Code @50-2A29BDB7
+    // -------------------------
+        getFichaData(this.name,this.id);
+    // -------------------------
+//End Custom Code
+
+//Close fichashipotecasnrodocumento_OnChange @35-BC33A33A
+    return result;
+}
+//End Close fichashipotecasnrodocumento_OnChange
+
+//DEL      // -------------------------
+//DEL  //return confirm('Esta acción perfecciona las cuotas de la hipoteca. Al continuar, ya no podrá modificar la información relativa a la mismo. Desea continuar?');
+//DEL      // -------------------------
+
+//hipotecasButton_Delete_OnClick @5-270EE66C
+function hipotecasButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End hipotecasButton_Delete_OnClick
+
+//bind_events @1-747A5E67
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+    if (functionExists("Footer_bind_events")) Footer_bind_events();
+    addEventHandler("fichashipotecasidficha", "change", fichashipotecasidficha_OnChange);
+    addEventHandler("fichashipotecasnombre", "change", fichashipotecasnombre_OnChange);
+    addEventHandler("fichashipotecasnrodocumento", "change", fichashipotecasnrodocumento_OnChange);
+    addEventHandler("hipotecasButton_Delete", "click", hipotecasButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+
+//End CCS script
+</script>
+<script src="../ajax.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//Begin ajax material lookup
+                var ajax = new Array();
+                var indexThis = 0;
+                 ajax[indexThis] = new sack();
+        var currentCodBarras=false;
+                
+        function getFichaData(nameVar,idVar)
+        {
+                        var cod_barras = document.getElementById(idVar).value;
+                        var str = nameVar;
+                        var it = str.substr(str.indexOf("_")+1,str.length-str.indexOf("_"));
+                        //alert(nameVar);
+                                                var str2 = nameVar;
+                                                var str3 = str2.substr(0,str2.indexOf("_"));
+
+                                                                ajax[indexThis].requestFile = 'getFicha.php?'+str3+'='+cod_barras+'&i='+it;   // Specifying which file to get
+                        ajax[indexThis].onCompletion = function(){ showFichaData(it); } ;
+                         ajax[indexThis].runAJAX();         // Execute AJAX function                        
+                 
+        }
+        
+        function showFichaData(it)
+        {
+                var formObj = document.forms['fichashipotecas'];     
+                                eval(ajax[indexThis].response);
+                                if (formObj.errorAjax.value=="true")
+                                {
+                                        alert('Ficha no encontrada');
+                                        eval("formObj.idficha_"+it+".focus()")
+                                }
+                                else
+                                {
+                                        eval("formObj.porcentajehip_"+it+".focus()")
+                                }
+        }
+ </script>
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<p>{Header} </p>
+<!-- BEGIN Record hipotecas -->
+<form name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Datos de la&nbsp;Hipoteca </th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th colspan="4">Deudor: {data_deudor}</th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th colspan="4">Propiedad: {data_prop}</th>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Montohipoteca</th>
+ 
+            <td><input id="hipotecasmontohipoteca" maxlength="20" value="{montohipoteca}" name="{montohipoteca_Name}" size="20"></td> 
+            <td>&nbsp;Moneda</td> 
+            <td>
+              <select id="hipotecasListBox1" name="{ListBox1_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {ListBox1_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Fechainicio</th>
+ 
+            <td><input id="hipotecasfechainicio" maxlength="100" size="10" value="{fechainicio}" name="{fechainicio_Name}">
+              <!-- BEGIN DatePicker DatePicker_fechainicio --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="hipotecasDatePicker_fechainicio"><img alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fechainicio --></td> 
+            <td>Fechafin&nbsp;</td> 
+            <td><input id="hipotecasfechafin" maxlength="100" size="10" value="{fechafin}" name="{fechafin_Name}">
+              <!-- BEGIN DatePicker DatePicker_fechafin --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="hipotecasDatePicker_fechafin"><img alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a>&nbsp;<!-- END DatePicker DatePicker_fechafin --></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th colspan="4">&nbsp; <input id="hipotecasidestado" type="hidden" value="{idestado}" name="{idestado_Name}"><input id="hipotecasidpropiedad" type="hidden" value="{idpropiedad}" name="{idpropiedad_Name}"></th>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="hipotecasButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="hipotecasButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="hipotecasButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record hipotecas -->&nbsp;&nbsp; 
+<!-- BEGIN EditableGrid fichashipotecas -->
+<form id="fichashipotecas" name="{HTMLFormName}" action="{Action}" method="post">
+  <input type="hidden" value="{FormState}" name="FormState">{FormScript} <input id="fichashipotecaserrorAjax" type="hidden" value="{errorAjax}" name="{errorAjax_Name}">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Acreedores</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Caption">
+            <th>Ficha - Nombre - Numero de Documento</th>
+ 
+            <th>Porcentaje</th>
+ 
+            <th>Borrar</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <!-- BEGIN RowError -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END RowError -->
+          <tr class="Row">
+            <td><input id="fichashipotecasidficha_{fichashipotecas:rowNumber}" maxlength="10" size="10" value="{idficha}" name="{idficha_Name}"><input id="fichashipotecasnombre" value="{nombre}" name="{nombre_Name}"><input id="fichashipotecasnrodocumento" value="{nrodocumento}" name="{nrodocumento_Name}"></td> 
+            <td><input id="fichashipotecasporcentajehip_{fichashipotecas:rowNumber}" maxlength="20" value="{porcentajehip}" name="{porcentajehip_Name}" size="20">%</td> 
+            <td>
+              <!-- BEGIN CheckBox CheckBox_Delete --><input id="fichashipotecasCheckBox_Delete_{fichashipotecas:rowNumber}" type="checkbox" value="1" name="{CheckBox_Delete_Name}" {CheckBox_Delete}><!-- END CheckBox CheckBox_Delete -->&nbsp;</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td style="TEXT-ALIGN: right" colspan="3">
+              <!-- BEGIN Button Button_Submit --><input class="Button" id="fichashipotecasButton_Submit" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Submit --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END EditableGrid fichashipotecas -->
+<!-- BEGIN Grid fichashipotecasRO -->
+<table cellspacing="0" cellpadding="0" width="600" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Acreedores&nbsp;</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Ficha - Nombre - Numero de Documento</th>
+ 
+          <th>Porcentaje</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right">{idficha}&nbsp;- {nombre}&nbsp; - {nrodocumento}</td> 
+          <td style="TEXT-ALIGN: right">{porcentajehip}&nbsp;%</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="2">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid fichashipotecasRO -->
+<!-- BEGIN Record generacuotas -->
+<form id="generacuotas" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top" align="right">&nbsp; 
+        <!--        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>generacuotas</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table> 
+ 
+        <table class="Record" cellspacing="0" cellpadding="0"> -->
+        <table cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td>{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Bottom">
+            <td align="right">&nbsp;{exito}</td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <th align="right">
+            <!-- BEGIN Button Button_Insert --><input class="Button" id="generacuotasButton_Insert" type="submit" value="Genera cuotas" name="{Button_Name}"><!-- END Button Button_Insert -->
+            <!-- BEGIN Button Button_Update --><input class="Button" id="generacuotasButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update --></th>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record generacuotas -->&nbsp; 
+<p>{Footer} </p>
+</body>
+</html>

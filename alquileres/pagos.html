@@ -1,0 +1,211 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>pagos</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Grid alquileres_fichas_fichasp -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Detalles del Inquilino / Propiedad</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Alquiler</th>
+ 
+          <th>Fecha inicio</th>
+ 
+          <th>Fecha fin</th>
+ 
+          <th>Ficha</th>
+ 
+          <th>Nombre</th>
+ 
+          <th>Propiedad</th>
+ 
+          <th>Dirección</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right">{idalquiler}&nbsp;</td> 
+          <td>{fechainicio}&nbsp;</td> 
+          <td>{fechafin}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{idficha}&nbsp;</td> 
+          <td>{nombre}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{idpropiedad}&nbsp;</td> 
+          <td>{propiedades_direccion}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="7">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid alquileres_fichas_fichasp -->
+<p></p>
+<a href="{Link1_Src}" id="Link1">{Link1}</a> <a href="{Link2_Src}" id="Link2" target="_blank">Mostrar impuestos presentados</a> 
+<!-- BEGIN Grid cuotaspagadas -->
+<form id="rec" name="rec" action="paga_cuotas.php" method="post" target="_new">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Cuotas Pagadas del Alquiler {lblidalquiler}&nbsp;<input id="cuotaspagadasidalquiler" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"></th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>Año&nbsp;</th>
+ 
+            <th>Mes&nbsp;</th>
+ 
+            <th>Fecha pago</th>
+ 
+            <th>Importe de la cuota</th>
+ 
+            <th>IVA+Com</th>
+ 
+            <th>&nbsp;Otros Cargos</th>
+ 
+            <th>&nbsp;Ver</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td style="TEXT-ALIGN: right">{ano}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">{mes}&nbsp;</td> 
+            <td>{fechavencimiento}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">{importe}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">{ivacom}</td> 
+            <td style="TEXT-ALIGN: right">{otros}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right"><a href="{Link1_Src}" id="cuotaspagadasLink1_{cuotaspagadas:rowNumber}" target="_blank">Ver recibo</a>&nbsp;</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="7">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="7">
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+              <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+              <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+              <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+              <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+<!-- END Grid cuotaspagadas -->
+<p></p>
+<!-- BEGIN Grid cuotas -->
+<form id="rec" name="rec" action="paga_cuotas.php" method="post" target="_new">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Cuotas Pendientes del Alquiler {lblidalquiler}&nbsp;<input id="cuotasidalquiler" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"></th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>Año&nbsp;</th>
+ 
+            <th>Mes&nbsp;</th>
+ 
+            <th>Fecha vencimiento</th>
+ 
+            <th>Importe de la cuota</th>
+ 
+            <th>&nbsp;Marcar</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td style="TEXT-ALIGN: right">{ano}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">{mes}&nbsp;</td> 
+            <td>{fechavencimiento}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right">{importe}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right"><input id="cuotaspaga" type="checkbox" value="1" name="{paga_Name}[{idcuota}]" {paga}>&nbsp;<input id="cuotasidcuota" type="hidden" value="{idcuota}" name="{idcuota_Name}"></td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="5">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="5">
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+              <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+              <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+              <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+              <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+          </tr>
+        </table>
+<a href="{Link2_Src}" id="cuotasLink2_{cuotas:rowNumber}">Agregar cuota</a></td>
+    </tr>
+  </table>
+  <p>&nbsp; 
+  <!-- BEGIN Button Button1 --><input class="Button" id="cuotasButton1" type="submit" value="Registrar pago" name="{Button_Name}"><!-- END Button Button1 --></p>
+  <p>&nbsp;</p>
+</form>
+<!-- END Grid cuotas -->
+</body>
+</html>

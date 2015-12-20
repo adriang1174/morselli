@@ -1,0 +1,60 @@
+
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+
+//Include Common JSFunctions @1-A2F3288E
+</script>
+<script language="JavaScript" src="{page:pathToRoot}ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Headercaja_OnLoad @1-38812A98
+function Headercaja_OnLoad()
+{
+    var result = true;
+//End Headercaja_OnLoad
+
+//Close Headercaja_OnLoad @1-BC33A33A
+    return result;
+}
+//End Close Headercaja_OnLoad
+
+//bind_events @1-1F9DA5D8
+function Headercaja_bind_events() {
+    addEventHandler("Headercaja", "load", Headercaja_OnLoad);
+}
+//End bind_events
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/SandBeach/Style.css">
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<!-- BEGIN Grid JSMenu -->
+<div id="MenuPos" style="HEIGHT: 18px">
+</div>
+<script language="JavaScript" src="{CCS_PathToRoot}menu_com.js" type="text/javascript"></script>
+<noscript>
+<table class="Header" style="FONT-SIZE: 13px">
+  <tr>
+    <th>JavaScript Menu</th>
+ 
+  </tr>
+</table>
+</noscript>
+<script language="JavaScript" type="text/javascript">
+var oldOnLoadHandler = window.onload;
+window.onload = function () {
+  if (oldOnLoadHandler) oldOnLoadHandler();
+  var jsMenu = new MenuWrapper();
+  //Header Style: "Dynamic"
+  HeaderItemTemplate = "<table cellpadding='0' cellspacing='0' class='Header' style='font-size: 13px; width: 100%'><tr><th style='text-align: center'>[caption]</th></tr></table>";
+  HeaderItemTemplateActive = "<div class='CalendarSelectedDay' align='center' style='font-size: 13px; width: 100%'><nobr>[caption]</nobr></div>";
+  HideListboxesForIE6 = false;
+  FirstLineHorizontal = 1;
+  MenuCentered = "left";
+  MenuVerticalCentered = "top";
+Arrws=["{CCS_PathToRoot}Styles/jsmenu_right.gif",4,9,"{CCS_PathToRoot}Styles/jsmenu_clear.gif",10,5,"{CCS_PathToRoot}Styles/jsmenu_left.gif",7,9];
+<!-- BEGIN Row -->  jsMenu.AddSubMenu("{Menu_Id}","{Menu_Caption}", "{Menu_Url}", "{Menu_Id_Parent}", "{Menu_Width}", "{Menu_Icon}", "");
+<!-- END Row -->  jsMenu.Build("{Menu_Id_Root}");
+}</script>
+<!-- END Grid JSMenu -->

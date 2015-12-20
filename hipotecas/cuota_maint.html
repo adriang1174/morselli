@@ -1,0 +1,112 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>cuota_maint</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-D7257502
+
+var cuotas_DatePicker_fechavencimiento = new Object(); 
+cuotas_DatePicker_fechavencimiento.format           = "dd/mm/yyyy";
+cuotas_DatePicker_fechavencimiento.style            = "Styles/SandBeach/Style.css";
+cuotas_DatePicker_fechavencimiento.relativePathPart = "../";
+cuotas_DatePicker_fechavencimiento.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<p>
+<!-- BEGIN Record cuotas -->
+<form id="cuotas" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>
+            <p>Cuota</p>
+            </th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Tipo de cuota</th>
+ 
+            <td>
+              <select id="cuotasidtipocuota" name="{idtipocuota_Name}">
+                <option value="" selected>Seleccionar Valor</option>
+                {idtipocuota_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Fecha vencimiento</th>
+ 
+            <td><input id="cuotasfechavencimiento" maxlength="100" size="8" value="{fechavencimiento}" name="{fechavencimiento_Name}">
+              <!-- BEGIN DatePicker DatePicker_fechavencimiento --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="cuotasDatePicker_fechavencimiento"><img id="cuotasDatePicker_fechavencimiento_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"></a><!-- END DatePicker DatePicker_fechavencimiento --></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Importe</th>
+ 
+            <td><input id="cuotasimporte" maxlength="12" size="12" value="{importe}" name="{importe_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Año</th>
+ 
+            <td><input id="cuotasano" maxlength="10" size="10" value="{ano}" name="{ano_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Mes</th>
+ 
+            <td><input id="cuotasmes" maxlength="10" size="10" value="{mes}" name="{mes_Name}"><input id="cuotasidalquiler" type="hidden" value="{idalquiler}" name="{idalquiler_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="cuotasButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="cuotasButton_Update" type="submit" value="Enviar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="cuotasButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record cuotas --><br>
+<a href="{Link1_Src}" id="Link1">Volver</a></p>
+</body>
+</html>

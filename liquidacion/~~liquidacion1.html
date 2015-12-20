@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>liquidacion</TITLE>
+<META http-equiv=content-type content="text/html; charset=windows-1252" 
+ccsServiceable="true">
+<META content="MSHTML 6.00.6000.16640" name=GENERATOR 
+ccsServiceable="true"><LINK href="../Styles/SandBeach/Style.css" type=text/css 
+rel=stylesheet ccsServiceable="true">
+<SCRIPT language=JavaScript type=text/javascript>
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" 
+type=text/javascript charset=utf-8></SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+//End Include Common JSFunctions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</SCRIPT>
+</HEAD>
+<BODY>
+<P><SPAN contentEditable=false 
+style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+ccsServiceable="true" ccsType="Component" ccsBlockIsWhiteSpace="true" 
+ccsName="Header" ccsId="25">Header</SPAN></P>
+<P><SPAN contentEditable=true 
+style="BORDER-RIGHT: #ff3333 thin dashed; BORDER-TOP: #ff3333 thin dashed; DISPLAY: block; BORDER-LEFT: #ff3333 thin dashed; BORDER-BOTTOM: #ff3333 thin dashed" 
+ccsServiceable="true" ccsType="Component" ccsName="Grid2" ccsId="15">
+<FORM id=Grid2 name={HTMLFormName} action={Action} method=post 
+ccsServiceable="true">
+<TABLE cellSpacing=0 cellPadding=0 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=Header cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=HeaderLeft><IMG 
+            src="../Styles/SandBeach/Images/Spacer.gif" border=0 
+            ccsServiceable="true"></TD>
+          <TH>Buscar</TH>
+          <TD class=HeaderRight><IMG 
+            src="../Styles/SandBeach/Images/Spacer.gif" border=0 
+            ccsServiceable="true"></TD></TR></TBODY></TABLE>
+      <TABLE class=Record cellSpacing=0 cellPadding=0><!-- BEGIN Error -->
+        <TBODY>
+        <TR class=Error>
+          <TD colSpan=2>{Error}</TD></TR><!-- END Error -->
+        <TR class=Controls>
+          <TH>&nbsp;Nro. contrato</TH>
+          <TD><INPUT id=Grid2idalquiler value={idalquiler} 
+            name={idalquiler_Name} ccsServiceable="true" ccsType="Component" 
+            ccsName="idalquiler" ccsId="55"></TD></TR>
+        <TR class=Bottom>
+          <TD align=right colSpan=2><INPUT class=Button id=Grid2Button_DoSearch type=submit value=Buscar name={Button_Name} ccsServiceable="true" ccsType="Component" ccsName="Button_DoSearch" ccsId="16" ccsExtendedHtml="true"></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>&nbsp;</SPAN></P>
+<P><SPAN contentEditable=true 
+style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+ccsServiceable="true" ccsType="Component" ccsName="Link1" ccsId="96"><A id=Link1 
+href="{Link1_Src}" ccsServiceable="true"><SPAN style="WHITE-SPACE: nowrap" 
+ccsServiceable="true" ccsBlockIsWhiteSpace="true">{Link1}</SPAN></A></SPAN></P>
+<P><SPAN contentEditable=true 
+style="BORDER-RIGHT: #ff3333 thin dashed; BORDER-TOP: #ff3333 thin dashed; DISPLAY: block; BORDER-LEFT: #ff3333 thin dashed; BORDER-BOTTOM: #ff3333 thin dashed" 
+ccsServiceable="true" ccsType="Component" ccsName="Grid3" ccsId="65">
+<FORM id=liq name=liq action=liquida_cuotas.php method=post target=_new 
+ccsServiceable="true">
+<TABLE cellSpacing=0 cellPadding=0 width=500 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=Header cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=HeaderLeft><IMG 
+            src="../Styles/SandBeach/Images/Spacer.gif" border=0 
+            ccsServiceable="true"></TD>
+          <TH>Cuotas&nbsp;liquidadas a&nbsp;<SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="nombrefichacontrato" 
+            ccsId="80">nombrefichacontrato</SPAN><INPUT id=Grid3idalquiler 
+            type=hidden value={idalquiler} name={idalquiler_Name} 
+            ccsServiceable="true" ccsType="Component" ccsName="idalquiler" 
+            ccsId="81"><INPUT id=Grid3idficha type=hidden value={idficha} 
+            name={idficha_Name} ccsServiceable="true" ccsType="Component" 
+            ccsName="idficha" ccsId="82"></TH>
+          <TD class=HeaderRight><IMG 
+            src="../Styles/SandBeach/Images/Spacer.gif" border=0 
+            ccsServiceable="true"></TD></TR></TBODY></TABLE>
+      <TABLE class=Grid cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR class=Caption>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_mes" ccsId="66" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_mes" ccsControlType="Sorter"><A 
+            id=Grid3Sorter_mes href="{Sort_URL}" ccsServiceable="true">Mes</A> 
+            <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_ano" ccsId="67" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_ano" ccsControlType="Sorter"><A 
+            id=Grid3Sorter_ano href="{Sort_URL}" ccsServiceable="true">Año</A> 
+            <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_fechavencimiento" ccsId="68" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_fechavencimiento" ccsControlType="Sorter"><A 
+            id=Grid3Sorter_fechavencimiento href="{Sort_URL}" 
+            ccsServiceable="true">Fecha vencimiento</A> <SPAN 
+            contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH>&nbsp; <SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_descripcion" ccsId="86" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_descripcion" ccsControlType="Sorter"><A 
+            id=Grid3Sorter_descripcion href="{Sort_URL}" 
+            ccsServiceable="true">Tipo de cuota</A> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_importe" ccsId="69" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_importe" ccsControlType="Sorter"><A 
+            id=Grid3Sorter_importe href="{Sort_URL}" 
+            ccsServiceable="true">Importe</A> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_fechaaviso" ccsId="70" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_fechaaviso" ccsControlType="Sorter"><A 
+            id=Grid3Sorter_fechaaviso href="{Sort_URL}" 
+            ccsServiceable="true">Fecha aviso</A> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH>&nbsp;Fecha Liquidacion</TH></TR>
+        <TR ccsServiceable="true" ccsType="Block" name="Row" isBegin="True">
+          <TD 
+          style="BORDER-RIGHT: black 1px solid; BORDER-TOP: 2px groove; BORDER-LEFT: 2px groove; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #dddddd" 
+          colSpan=99 ccsServiceable="true" atomicselection="true" 
+          unselectable="on"><SPAN 
+            style="FONT-SIZE: xx-small; WIDTH: 100%; BORDER-TOP-STYLE: none; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 100%; BORDER-BOTTOM-STYLE: none" 
+            ccsServiceable="true" unselectable="on">Begin Row</SPAN></TD></TR>
+        <TR class=Row>
+          <TD style="TEXT-ALIGN: right"><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="mes" 
+          ccsId="71">mes</SPAN>&nbsp;</TD>
+          <TD style="TEXT-ALIGN: right"><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="ano" 
+          ccsId="72">ano</SPAN>&nbsp;</TD>
+          <TD><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="fechavencimiento" 
+            ccsId="73">fechavencimiento</SPAN>&nbsp;</TD>
+          <TD style="TEXT-ALIGN: right">&nbsp;<SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="tipocuota" 
+            ccsId="85">tipocuota</SPAN></TD>
+          <TD style="TEXT-ALIGN: right" noWrap>&nbsp;<SPAN 
+            contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="simbolo" 
+            ccsId="87">simbolo</SPAN> <SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="importe" 
+            ccsId="74">importe</SPAN></TD>
+          <TD><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="fechaaviso" 
+            ccsId="76">fechaaviso</SPAN>&nbsp;<INPUT id=Grid3idcuota type=hidden 
+            value={idcuota} name={idcuota_Name} ccsServiceable="true" 
+            ccsType="Component" ccsName="idcuota" ccsId="78"></TD>
+          <TD>&nbsp;<SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="fechaliquidacion" 
+            ccsId="92">fechaliquidacion</SPAN></TD></TR>
+        <TR ccsServiceable="true" ccsType="Block" name="Row" isBegin="False">
+          <TD 
+          style="BORDER-RIGHT: black 1px solid; BORDER-TOP: 2px groove; BORDER-LEFT: 2px groove; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #dddddd" 
+          colSpan=99 ccsServiceable="true" atomicselection="true" 
+          unselectable="on"><SPAN 
+            style="FONT-SIZE: xx-small; WIDTH: 100%; BORDER-TOP-STYLE: none; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 100%; BORDER-BOTTOM-STYLE: none" 
+            ccsServiceable="true" unselectable="on">End Row</SPAN></TD></TR><!-- BEGIN NoRecords -->
+        <TR class=NoRecords>
+          <TD colSpan=7>No hay 
+      registros</TD></TR><!-- END NoRecords --></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>&nbsp;</SPAN></P>
+<P><BR></P><SPAN contentEditable=true 
+style="BORDER-RIGHT: #ff3333 thin dashed; BORDER-TOP: #ff3333 thin dashed; DISPLAY: block; BORDER-LEFT: #ff3333 thin dashed; BORDER-BOTTOM: #ff3333 thin dashed" 
+ccsServiceable="true" ccsType="Component" ccsName="Grid1" ccsId="2">
+<FORM id=liq name=liq action=liquida_cuotas.php method=post target=_new 
+ccsServiceable="true">
+<TABLE cellSpacing=0 cellPadding=0 width=500 border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <TABLE class=Header cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR>
+          <TD class=HeaderLeft><IMG 
+            src="../Styles/SandBeach/Images/Spacer.gif" border=0 
+            ccsServiceable="true"></TD>
+          <TH>Cuotas&nbsp;a liquidar a&nbsp;<SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="nombrefichacontrato" 
+            ccsId="51">nombrefichacontrato</SPAN><INPUT id=Grid1idalquiler 
+            type=hidden value={idalquiler} name={idalquiler_Name} 
+            ccsServiceable="true" ccsType="Component" ccsName="idalquiler" 
+            ccsId="53"><INPUT id=Grid1idficha type=hidden value={idficha} 
+            name={idficha_Name} ccsServiceable="true" ccsType="Component" 
+            ccsName="idficha" ccsId="54"></TH>
+          <TD class=HeaderRight><IMG 
+            src="../Styles/SandBeach/Images/Spacer.gif" border=0 
+            ccsServiceable="true"></TD></TR></TBODY></TABLE>
+      <TABLE class=Grid cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR class=Caption>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_mes" ccsId="5" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_mes" ccsControlType="Sorter"><A 
+            id=Grid1Sorter_mes href="{Sort_URL}" ccsServiceable="true">Mes</A> 
+            <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_ano" ccsId="6" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_ano" ccsControlType="Sorter"><A 
+            id=Grid1Sorter_ano href="{Sort_URL}" ccsServiceable="true">Año</A> 
+            <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_fechavencimiento" ccsId="7" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_fechavencimiento" ccsControlType="Sorter"><A 
+            id=Grid1Sorter_fechavencimiento href="{Sort_URL}" 
+            ccsServiceable="true">Fecha vencimiento</A> <SPAN 
+            contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH>&nbsp; <SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_descripcion" ccsId="62" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_descripcion" ccsControlType="Sorter"><A 
+            id=Grid1Sorter_descripcion href="{Sort_URL}" 
+            ccsServiceable="true">Tipo de cuota</A> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_importe" ccsId="8" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_importe" ccsControlType="Sorter"><A 
+            id=Grid1Sorter_importe href="{Sort_URL}" 
+            ccsServiceable="true">Importe</A> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH><SPAN ccsServiceable="true" ccsType="Sorter" 
+            ccsName="Sorter_fechaaviso" ccsId="9" ccsExtendedHtml="true" 
+            ccsExtendedHtmlSpan="true" atomicselection="true" 
+            ccsControlName="Sorter_fechaaviso" ccsControlType="Sorter"><A 
+            id=Grid1Sorter_fechaaviso href="{Sort_URL}" 
+            ccsServiceable="true">Fecha aviso</A> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Asc_On" ccsId="" 
+            name="Asc_On"><IMG src="../Styles/SandBeach/Images/Asc.gif" border=0 
+            ccsServiceable="true"></SPAN> <SPAN contentEditable=true 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Block" ccsName="Desc_On" ccsId="" 
+            name="Desc_On"><IMG src="../Styles/SandBeach/Images/Desc.gif" 
+            border=0 ccsServiceable="true"></SPAN>&nbsp;</SPAN></TH>
+          <TH>&nbsp;Liquidar</TH></TR>
+        <TR ccsServiceable="true" ccsType="Block" name="Row" isBegin="True">
+          <TD 
+          style="BORDER-RIGHT: black 1px solid; BORDER-TOP: 2px groove; BORDER-LEFT: 2px groove; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #dddddd" 
+          colSpan=99 ccsServiceable="true" atomicselection="true" 
+          unselectable="on"><SPAN 
+            style="FONT-SIZE: xx-small; WIDTH: 100%; BORDER-TOP-STYLE: none; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 100%; BORDER-BOTTOM-STYLE: none" 
+            ccsServiceable="true" unselectable="on">Begin Row</SPAN></TD></TR>
+        <TR class=Row>
+          <TD style="TEXT-ALIGN: right"><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="mes" 
+          ccsId="10">mes</SPAN>&nbsp;</TD>
+          <TD style="TEXT-ALIGN: right"><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="ano" 
+          ccsId="11">ano</SPAN>&nbsp;</TD>
+          <TD><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="fechavencimiento" 
+            ccsId="12">fechavencimiento</SPAN>&nbsp;</TD>
+          <TD style="TEXT-ALIGN: right">&nbsp;<SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="tipocuota" 
+            ccsId="61">tipocuota</SPAN></TD>
+          <TD style="TEXT-ALIGN: right">&nbsp;<SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="simbolo" 
+            ccsId="63">simbolo</SPAN> <SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="importe" 
+            ccsId="13">importe</SPAN></TD>
+          <TD><SPAN contentEditable=false 
+            style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+            ccsServiceable="true" ccsType="Component" 
+            ccsBlockIsWhiteSpace="true" ccsName="fechaaviso" 
+            ccsId="14">fechaaviso</SPAN>&nbsp;</TD>
+          <TD><INPUT id=Grid1liquida type=checkbox value=1 
+            name={liquida_Name}[{ano}][{mes}] ccsServiceable="true" 
+            ccsType="Component" ccsName="liquida" ccsId="21" 
+            ccscheckedattr="{liquida}">&nbsp;<INPUT id=Grid1idcuota type=hidden 
+            value={idcuota} name={idcuota_Name} ccsServiceable="true" 
+            ccsType="Component" ccsName="idcuota" ccsId="23"></TD></TR>
+        <TR ccsServiceable="true" ccsType="Block" name="Row" isBegin="False">
+          <TD 
+          style="BORDER-RIGHT: black 1px solid; BORDER-TOP: 2px groove; BORDER-LEFT: 2px groove; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #dddddd" 
+          colSpan=99 ccsServiceable="true" atomicselection="true" 
+          unselectable="on"><SPAN 
+            style="FONT-SIZE: xx-small; WIDTH: 100%; BORDER-TOP-STYLE: none; FONT-FAMILY: Arial; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 100%; BORDER-BOTTOM-STYLE: none" 
+            ccsServiceable="true" unselectable="on">End Row</SPAN></TD></TR><!-- BEGIN NoRecords -->
+        <TR class=NoRecords>
+          <TD colSpan=7>No hay 
+      registros</TD></TR><!-- END NoRecords --></TBODY></TABLE><SPAN 
+      contentEditable=true 
+      style="BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BORDER-BOTTOM: #bbbbbb 1px solid; WHITE-SPACE: nowrap" 
+      ccsServiceable="true" ccsType="Component" ccsName="Link2" ccsId="59"><A 
+      id=Grid1Link2_{Grid1:rowNumber} href="{Link2_Src}" 
+      ccsServiceable="true"><SPAN style="WHITE-SPACE: nowrap" 
+      ccsServiceable="true" ccsBlockIsWhiteSpace="true">Agregar 
+      cuota</SPAN></A></SPAN></TD></TR></TBODY></TABLE><BR><INPUT class=Button id=Grid1Button1 type=submit value=Liquidar name={Button_Name} ccsServiceable="true" ccsType="Component" ccsName="Button1" ccsId="24" ccsExtendedHtml="true"> 
+</FORM>&nbsp;</SPAN> </BODY></HTML>

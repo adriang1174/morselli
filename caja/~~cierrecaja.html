@@ -1,0 +1,168 @@
+<html >
+<head>
+<meta ccsServiceable="true" http-equiv="content-type" content="text/html; charset=windows-1252"/>
+
+<title>cierrecaja</title>
+
+<meta ccsServiceable="true" content="CodeCharge Studio 4.2.00.040" name="GENERATOR"/>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-D3AEA057
+
+var cajaresumen1_DatePicker_s_fecha = new Object(); 
+cajaresumen1_DatePicker_s_fecha.format           = "ShortDate";
+cajaresumen1_DatePicker_s_fecha.style            = "Styles/SandBeach/Style.css";
+cajaresumen1_DatePicker_s_fecha.relativePathPart = "../";
+cajaresumen1_DatePicker_s_fecha.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//cajaresumenButton_Delete_OnClick @6-F748570B
+function cajaresumenButton_Delete_OnClick()
+{
+    disableValidation = true;
+}
+//End cajaresumenButton_Delete_OnClick
+
+//bind_events @1-D990160E
+function bind_events() {
+    if (functionExists("Headercaja_bind_events")) Headercaja_bind_events();
+    addEventHandler("cajaresumenButton_Delete", "click", cajaresumenButton_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link ccsServiceable="true" href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<p><span ccsId="2" ccsName="Headercaja" ccsBlockIsWhiteSpace="true" style="white-space:nowrap;border-color:#bbbbbb;border-style:solid;border-width:1px" ccsType="Component" ccsServiceable="true" contentEditable="false">Headercaja</span></p>
+<p>
+<span contentEditable="true"  style="display:block;border-style:dashed;border-color:#FF3333; border-width:thin" ccsType="Component" ccsId="28" ccsServiceable="true" ccsName="cajaresumen1" >
+
+<form ccsServiceable="true" id="cajaresumen1" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td> 
+            <th>Ingrese fecha</th>
+ 
+            <td class="HeaderRight"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td><input ccsServiceable="true" ccsId="30" ccsName="s_fecha" ccsType="Component" id="cajaresumen1s_fecha" maxlength="100" size="10" value="{s_fecha}" name="{s_fecha_Name}"/>
+              <span ccsId="31" ccsName="DatePicker_s_fecha" ccsType="DatePicker" ccsControlType="DatePicker" ccsControlName="DatePicker_s_fecha" ccsExtendedHtml="true" atomicselection="true"  ccsServiceable="true" ccsExtendedHtmlSpan="true"><a ccsServiceable="true" href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="cajaresumen1DatePicker_s_fecha"><img ccsServiceable="true" id="cajaresumen1DatePicker_s_fecha_Image" alt="Show Date Picker" src="../Styles/SandBeach/Images/DatePicker.gif" border="0"/></a>&nbsp;</span></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <input ccsServiceable="true" ccsId="29" ccsName="Button_DoSearch" ccsType="Component" ccsExtendedHtml="true" class="Button" id="cajaresumen1Button_DoSearch" type="submit" value="Buscar" name="{Button_Name}"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+
+&nbsp;</span><br>
+</p>
+<p>
+<span contentEditable="true"  style="display:block;border-style:dashed;border-color:#FF3333; border-width:thin" ccsType="Component" ccsId="3" ccsServiceable="true" ccsName="cajaresumen" >
+
+<form ccsServiceable="true" id="cajaresumen" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td> 
+            <th>Cierre de caja&nbsp;</th>
+ 
+            <td class="HeaderRight"><img ccsServiceable="true" src="../Styles/SandBeach/Images/Spacer.gif" border="0"/></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error} </td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Fecha</th>
+ 
+            <td colspan="3"><input ccsServiceable="true" ccsId="8" ccsName="fecha" ccsType="Component" id="cajaresumenfecha" readonly="readonly" maxlength="100" size="10" value="{fecha}" name="{fecha_Name}"/></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Saldo inicial $</th>
+ 
+            <td><input ccsServiceable="true" ccsId="10" ccsName="saldoinicial" ccsType="Component" id="cajaresumensaldoinicial" readonly="readonly" maxlength="12" size="12" value="{saldoinicial}" name="{saldoinicial_Name}"/></td> 
+            <td>&nbsp;Saldo inicial U$S</td> 
+            <td><input ccsServiceable="true" ccsId="33" ccsName="saldoinicialdolar" ccsType="Component" id="cajaresumensaldoinicialdolar" value="{saldoinicialdolar}" name="{saldoinicialdolar_Name}"/></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Total ingresos $</th>
+ 
+            <td><input ccsServiceable="true" ccsId="11" ccsName="totalingresos" ccsType="Component" id="cajaresumentotalingresos" readonly="readonly" maxlength="12" size="12" value="{totalingresos}" name="{totalingresos_Name}"/></td> 
+            <td>&nbsp;Total ingresos U$S</td> 
+            <td><input ccsServiceable="true" ccsId="34" ccsName="totalingresosdolar" ccsType="Component" id="cajaresumentotalingresosdolar" value="{totalingresosdolar}" name="{totalingresosdolar_Name}"/></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Total egresos $</th>
+ 
+            <td><input ccsServiceable="true" ccsId="12" ccsName="totalegresos" ccsType="Component" id="cajaresumentotalegresos" readonly="readonly" maxlength="12" size="12" value="{totalegresos}" name="{totalegresos_Name}"/></td> 
+            <td>&nbsp;Total egresos U$S</td> 
+            <td><input ccsServiceable="true" ccsId="35" ccsName="totalegresosdolar" ccsType="Component" id="cajaresumentotalegresosdolar" value="{totalegresosdolar}" name="{totalegresosdolar_Name}"/></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Saldo final $</th>
+ 
+            <td><input ccsServiceable="true" ccsId="13" ccsName="saldofinal" ccsType="Component" id="cajaresumensaldofinal" readonly="readonly" maxlength="12" size="12" value="{saldofinal}" name="{saldofinal_Name}"/></td> 
+            <td>&nbsp;Saldo final U$S</td> 
+            <td><input ccsServiceable="true" ccsId="36" ccsName="saldofinaldolar" ccsType="Component" id="cajaresumensaldofinaldolar" value="{saldofinaldolar}" name="{saldofinaldolar_Name}"/></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <input ccsServiceable="true" ccsId="4" ccsName="Button_Insert" ccsType="Component" ccsExtendedHtml="true" class="Button" id="cajaresumenButton_Insert" type="submit" value="Agregar" name="{Button_Name}"/>
+              <input ccsServiceable="true" ccsId="5" ccsName="Button_Update" ccsType="Component" ccsExtendedHtml="true" class="Button" id="cajaresumenButton_Update" type="submit" value="Enviar" name="{Button_Name}"/>
+              <input ccsServiceable="true" ccsId="6" ccsName="Button_Delete" ccsType="Component" ccsExtendedHtml="true" class="Button" id="cajaresumenButton_Delete" type="submit" value="Borrar" name="{Button_Name}"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+
+&nbsp;</span><br>
+</p>
+
+</body>
+</html>

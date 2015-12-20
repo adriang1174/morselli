@@ -1,0 +1,157 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>pagos_list</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Record fichas_fichaspropiedades -->
+<form id="fichas_fichaspropiedades" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Buscar</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Carpeta</th>
+ 
+            <td colspan="3"><input id="fichas_fichaspropiedadess_idalquiler" value="{s_idalquiler}" name="{s_idalquiler_Name}">&nbsp;</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Ficha</th>
+ 
+            <td><input id="fichas_fichaspropiedadess_fichas_idficha" maxlength="10" size="10" value="{s_fichas_idficha}" name="{s_fichas_idficha_Name}"></td> 
+            <td>Nombre&nbsp;</td> 
+            <td><input id="fichas_fichaspropiedadess_nombre" maxlength="50" size="50" value="{s_nombre}" name="{s_nombre_Name}">&nbsp;</td>
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Dirección</th>
+ 
+            <td colspan="3"><input id="fichas_fichaspropiedadess_propiedades_direccion" maxlength="50" size="50" value="{s_propiedades_direccion}" name="{s_propiedades_direccion_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="4">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="fichas_fichaspropiedadesButton_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record fichas_fichaspropiedades --><br>
+<!-- BEGIN Grid fichas_fichaspropiedades1 -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Propietarios&nbsp;y Propiedades</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_fichas_idficha --><a href="{Sort_URL}" id="fichas_fichaspropiedades1Sorter_fichas_idficha">Ficha</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_fichas_idficha --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_nombre --><a href="{Sort_URL}" id="fichas_fichaspropiedades1Sorter_nombre">Nombre y Apellido</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_nombre --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_propiedades_direccion --><a href="{Sort_URL}" id="fichas_fichaspropiedades1Sorter_propiedades_direccion">Dirección</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_propiedades_direccion --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_propiedades_localidad --><a href="{Sort_URL}" id="fichas_fichaspropiedades1Sorter_propiedades_localidad">Localidad</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_propiedades_localidad --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_propiedades_telefono --><a href="{Sort_URL}" id="fichas_fichaspropiedades1Sorter_propiedades_telefono">Teléfono</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/SandBeach/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/SandBeach/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_propiedades_telefono --></th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right">{fichas_idficha}&nbsp;</td> 
+          <td><a href="{nombre_Src}" id="fichas_fichaspropiedades1nombre_{fichas_fichaspropiedades1:rowNumber}">{nombre}</a>&nbsp;</td> 
+          <td>{propiedades_direccion}&nbsp;</td> 
+          <td>{propiedades_localidad}&nbsp;</td> 
+          <td>{propiedades_telefono}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="5">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="5">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+            <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+              <option value="" selected>-</option>
+ {PageSize_Options}
+            </select>
+ 
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid fichas_fichaspropiedades1 --><br>
+</body>
+</html>

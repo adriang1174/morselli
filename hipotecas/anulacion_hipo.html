@@ -1,0 +1,377 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Anulación de operaciones</title>
+<meta content="CodeCharge Studio 4.2.00.040" name="GENERATOR">
+<link href="../Styles/SandBeach/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//DEL      // -------------------------
+//DEL          getFichaData(this.name,this.id);
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL          getFichaData(this.name,this.id);
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL          getFichaData(this.name,this.id);
+//DEL      // -------------------------
+
+//bind_events @1-4A8114A8
+function bind_events() {
+    if (functionExists("Header_bind_events")) Header_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script src="../ajax.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//Begin ajax material lookup
+                var ajax = new Array();
+                var indexThis = 0;
+                 ajax[indexThis] = new sack();
+        var currentCodBarras=false;
+                
+        function getFichaData(nameVar,idVar)
+        {
+                        var cod_barras = document.getElementById(idVar).value;
+                        var str = nameVar;
+                        var it = str.substr(str.indexOf("_")+1,str.length-str.indexOf("_"));
+                        //alert(nameVar);
+                                                var str2 = nameVar;
+                                                var str3 = str2.substr(0,str2.indexOf("_"));
+
+                                                                ajax[indexThis].requestFile = 'getFicha.php?'+str3+'='+cod_barras+'&i='+it;   // Specifying which file to get
+                        ajax[indexThis].onCompletion = function(){ showFichaData(it); } ;
+                         ajax[indexThis].runAJAX();         // Execute AJAX function                        
+                 
+        }
+        
+        function showFichaData(it)
+        {
+                var formObj = document.forms['fichashipotecascesion'];     
+                                eval(ajax[indexThis].response);
+                                if (formObj.errorAjax.value=="true")
+                                {
+                                        alert('Ficha no encontrada');
+                                        eval("formObj.idficha_"+it+".focus()")
+                                }
+                                else
+                                {
+                                        eval("formObj.porcentajehip_"+it+".focus()")
+                                }
+        }
+ </script>
+</head>
+<body>
+<p>{Header}</p>
+<!-- BEGIN Record hipotecas -->
+<form id="hipotecas" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Operación</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <th>Nro Operación</th>
+ 
+            <td><input id="hipotecasidhipoteca" maxlength="10" size="10" value="{idhipoteca}" name="{idhipoteca_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="hipotecasButton_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record hipotecas --><br>
+<!-- BEGIN Grid hipoteca -->
+<table cellspacing="0" cellpadding="0" width="600" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Datos de la operación</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <th>Nro de operación</th>
+ 
+          <td>{idhipoteca}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Estado de la operación</th>
+ 
+          <td>{estado}</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Tiene cuotas pagas?</th>
+ 
+          <td>{cuotaspagas}</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Monto</th>
+ 
+          <td>{simbolo}&nbsp; {montohipoteca}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Fecha inicio</th>
+ 
+          <td>{fechainicio}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Fecha fin</th>
+ 
+          <td>{fechafin}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Dirección de la propiedad</th>
+ 
+          <td>{direccion}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="2">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid hipoteca -->
+<!-- BEGIN Grid deudores -->
+<table cellspacing="0" cellpadding="0" width="600" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Deudores</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>Nombre</th>
+ 
+          <th>Documento</th>
+ 
+          <th>Porcentaje</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{nombre}&nbsp;</td> 
+          <td>{destipodocumento}&nbsp; {nrodocumento}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{duenoporcentaje}&nbsp;%</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="3">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="3">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+            <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+              <option value="" selected>-</option>
+ {PageSize_Options}
+            </select>
+ 
+            <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+            <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid deudores -->
+<!-- BEGIN Grid deuda -->
+<table cellspacing="0" cellpadding="0" width="600" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+          <th>Datos actualizados al&nbsp;{Label1}</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <th>Deuda pendiente</th>
+ 
+          <td>{deuda}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Liquidaciones pendientes</th>
+ 
+          <td>{liquidacionp}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Honorariospendientes</th>
+ 
+          <td>{honorarios}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="2">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid deuda -->
+<!-- BEGIN Grid acreedores -->
+<form id="Anula" name="cesion" action="cesion_acreed2.php" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Acreedores</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>Nombre</th>
+ 
+            <th>Nrodocumento</th>
+ 
+            <th>Porcentaje</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td>{nombre}&nbsp;</td> 
+            <td>{destipodocumento}&nbsp;{nrodocumento}</td> 
+            <td style="TEXT-ALIGN: right">{porcentajehip}&nbsp;%</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">No hay registros</td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="3">
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                <option value="" selected>-</option>
+ {PageSize_Options}
+              </select>
+ 
+              <!-- BEGIN First_On --><a href="{First_URL}">|&lt; </a><!-- END First_On -->
+              <!-- BEGIN First_Off -->|&lt; <!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}">&lt;&lt; </a><!-- END Prev_On -->
+              <!-- BEGIN Prev_Off -->&lt;&lt; <!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}">&gt;&gt; </a><!-- END Next_On -->
+              <!-- BEGIN Next_Off -->&gt;&gt; <!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}">&gt;| </a><!-- END Last_On -->
+              <!-- BEGIN Last_Off -->&gt;| <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  &nbsp;<input id="acreedoresidhipoteca" type="hidden" value="{idhipoteca}" name="{idhipoteca_Name}">
+</form>
+<!-- END Grid acreedores -->
+<!-- BEGIN Record Anula -->
+<form id="Anula" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" width="600" border="0">
+    <tr>
+      <td valign="top" align="right">
+        <!--
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td> 
+            <th>Cesion</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/SandBeach/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ -->
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td>{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td align="right">{exito}</td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="AnulaButton_Insert" type="submit" value="Anular" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record Anula -->
+</body>
+</html>

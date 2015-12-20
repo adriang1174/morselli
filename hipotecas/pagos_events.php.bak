@@ -1,0 +1,53 @@
+<?php
+//BindEvents Method @1-420ECBD9
+function BindEvents()
+{
+    global $cuotas;
+    $cuotas->importe->CCSEvents["BeforeShow"] = "cuotas_importe_BeforeShow";
+    $cuotas->CCSEvents["BeforeShow"] = "cuotas_BeforeShow";
+}
+//End BindEvents Method
+
+//cuotas_importe_BeforeShow @40-1AB3545F
+function cuotas_importe_BeforeShow(& $sender)
+{
+    $cuotas_importe_BeforeShow = true;
+    $Component = & $sender;
+    $Container = & CCGetParentContainer($sender);
+    global $cuotas; //Compatibility
+//End cuotas_importe_BeforeShow
+
+//Custom Code @81-2A29BDB7
+// -------------------------
+$cuotas->importe->SetValue('$ '.number_format($cuotas->importe->GetValue(), 2, ',', '.'));
+// -------------------------
+//End Custom Code
+
+//Close cuotas_importe_BeforeShow @40-82B3D01A
+    return $cuotas_importe_BeforeShow;
+}
+//End Close cuotas_importe_BeforeShow
+
+//cuotas_BeforeShow @29-FC7C9867
+function cuotas_BeforeShow(& $sender)
+{
+    $cuotas_BeforeShow = true;
+    $Component = & $sender;
+    $Container = & CCGetParentContainer($sender);
+    global $cuotas; //Compatibility
+//End cuotas_BeforeShow
+
+//Custom Code @65-2A29BDB7
+// -------------------------
+$cuotas->idhipoteca->SetValue(CCGetFromGet('idhipoteca',''));
+$cuotas->lblidhipoteca->SetValue(CCGetFromGet('idhipoteca',''));
+// -------------------------
+//End Custom Code
+
+//Close cuotas_BeforeShow @29-F2B5DFDD
+    return $cuotas_BeforeShow;
+}
+//End Close cuotas_BeforeShow
+
+
+?>

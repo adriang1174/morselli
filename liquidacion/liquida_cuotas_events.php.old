@@ -1,0 +1,31 @@
+<?php
+//BindEvents Method @1-8432D049
+function BindEvents()
+{
+    global $liquida;
+    $liquida->liquida->CCSEvents["BeforeShow"] = "liquida_liquida_BeforeShow";
+}
+//End BindEvents Method
+
+//liquida_liquida_BeforeShow @5-5439676D
+function liquida_liquida_BeforeShow(& $sender)
+{
+    $liquida_liquida_BeforeShow = true;
+    $Component = & $sender;
+    $Container = & CCGetParentContainer($sender);
+    global $liquida; //Compatibility
+//End liquida_liquida_BeforeShow
+
+//Custom Code @6-2A29BDB7
+// -------------------------
+   $liquida->liquida->SetValue(CCGetFromPost('liquida',''));
+// -------------------------
+//End Custom Code
+
+//Close liquida_liquida_BeforeShow @5-F0614F4D
+    return $liquida_liquida_BeforeShow;
+}
+//End Close liquida_liquida_BeforeShow
+
+
+?>
